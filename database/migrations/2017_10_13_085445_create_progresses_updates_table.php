@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProgressUpdateTable extends Migration
+class CreateProgressesUpdatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProgressUpdateTable extends Migration
      */
     public function up()
     {
-        Schema::create('progress_update', function (Blueprint $table) {
+        Schema::create('progresses_updates', function (Blueprint $table) {
             $table->integer('fu_id');
             $tabke->date('date');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateProgressUpdateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('progress_update');
+        Schema::dropIfExists('progresses_updates');
     }
 }
