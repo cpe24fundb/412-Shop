@@ -15,15 +15,15 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'admin'], function () use ($router) {
-    $router->group(['prefix' => 'manager'], function () use ($router) {
-        $router->get('/', 'ManagerController@list');
-        $router->get('/{id}/edit', 'ManagerController@editForm');
-        $router->post('/create', 'ManagerController@create');
-        $router->post('/{id}/update', 'ManagerController@update');
-        $router->get('/{id}/delete', 'ManagerController@delete');
-    });
-});
+// $router->group(['prefix' => 'admin'], function () use ($router) {
+//     $router->group(['prefix' => 'manager'], function () use ($router) {
+//         $router->get('/', 'ManagerController@list');
+//         $router->get('/{id}/edit', 'ManagerController@editForm');
+//         $router->post('/create', 'ManagerController@create');
+//         $router->post('/{id}/update', 'ManagerController@update');
+//         $router->get('/{id}/delete', 'ManagerController@delete');
+//     });
+// });
 
 //$router->group(['prefix' => 'admin'], function () use ($router) {
 //     $router->group(['prefix' => 'category'], function () use ($router) {
