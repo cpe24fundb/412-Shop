@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNotificationTable extends Migration
+class CreateBillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateNotificationTable extends Migration
      */
     public function up()
     {
-        Schema::create('notification', function (Blueprint $table) {
-            $table->increments('subsribe_id');
+        Schema::create('bills', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('line_total');
+            $table->time('time');
+            $table->date('date');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateNotificationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notification');
+        Schema::dropIfExists('bills');
     }
 }
