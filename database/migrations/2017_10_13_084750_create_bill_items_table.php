@@ -14,12 +14,12 @@ class CreateBillItemsTable extends Migration
     public function up()
     {
         Schema::create('bill_items', function (Blueprint $table) {
-            $table->integer('bid');
-            $table->integer('pid');
+            $table->integer('bill_id');
+            $table->integer('product_id');
             $table->integer('quantity');
             $table->timestamps();
 
-            $table->primary(['bid','pid']);
+            $table->primary(['bill_id','product_id']);
         });
     }
 
