@@ -14,7 +14,7 @@ class CreateBillItemsTable extends Migration
     public function up()
     {
         Schema::create('bill_items', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('bill_id');
             $table->timestamps();
             $table->integer('product_id');
             $table->integer('quality');
