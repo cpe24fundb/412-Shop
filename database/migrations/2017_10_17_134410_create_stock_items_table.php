@@ -17,7 +17,7 @@ class CreateStockItemsTable extends Migration
             $table->increments('id');
             $table->integer('stock_id');
             $table->integer('quantity');
-            $table->decimal('price', 5, 2);
+            $table->decimal('price', 13, 4);
             $table->timestamps();
         });
     }
