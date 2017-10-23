@@ -12,4 +12,8 @@ class Product extends Model
         return $this->belongsTo('App\Models\ProductCategory');
     }
 
+    public function notification()
+    {
+        return $this->belongsToMany('App\Models\Notification');
+    }
 }
