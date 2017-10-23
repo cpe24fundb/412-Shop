@@ -12,9 +12,9 @@ class Stock extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    public function products()
+    public function items()
     {
-        return $this->belongsToMany('App\Models\StockItems');
+        return $this->hasMany('App\Models\StockItems');
     }
 
 }
