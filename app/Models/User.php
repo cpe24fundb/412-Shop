@@ -10,7 +10,7 @@ class User extends Model
 
     public function stocks()
     {
-        return $this->belongsTo('App\Models\Stock');
+        return $this->hasMany('App\Models\Stock' );
     }
 
 
