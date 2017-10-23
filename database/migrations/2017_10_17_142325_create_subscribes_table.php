@@ -14,8 +14,8 @@ class CreateSubscribesTable extends Migration
     public function up()
     {
         Schema::create('subscribes', function (Blueprint $table) {
-            $table->interger('notification_id');
-            $table->interger('product_id');
+            $table->integer('notification_id');
+            $table->integer('product_id');
             $table->timestamps();
         });
     }
