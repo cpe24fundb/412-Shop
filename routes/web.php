@@ -11,6 +11,4 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return "All Product";
-});
+$router->get('/', 'ProductController@viewAllProducts');
