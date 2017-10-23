@@ -9,7 +9,7 @@ class Bill extends Model
 
     public function items()
     {
-        return $this->belongsToMany('App\Models\BillItems');
+        return $this->hasMany('App\Models\BillItems');
     }
 
 }
