@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notification extends Model
 {
-    public function subsrcibe(){
-        return $this->belongsToMany('App/Models/Product');
-    }
 
+    public function products(){
+        return $this->belongsToMany('App/Models/Product', 'subscribes');
+    }
 
 }
