@@ -6,10 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bill extends Model
 {
-
     public function items()
     {
         return $this->hasMany('App\Models\BillItems');
     }
-
 }

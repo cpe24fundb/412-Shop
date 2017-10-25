@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stock extends Model
 {
-
     public function users()
     {
         return $this->belongsTo('App\Models\User');
@@ -16,5 +15,4 @@ class Stock extends Model
     {
         return $this->hasMany('App\Models\StockItems');
     }
-
 }
