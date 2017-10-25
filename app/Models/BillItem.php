@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bill_items extends Model
 {
-
     public function product()
     {
         return $this->belongsTo('App\Models\Product');
@@ -16,5 +15,4 @@ class Bill_items extends Model
     {
         return $this->belongsTo('App\Models\Bill');
     }
-
 }
