@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubscribesTable extends Migration
+class AlterUsersTableAddToken extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateSubscribesTable extends Migration
      */
     public function up()
     {
-        Schema::create('subscribes', function (Blueprint $table) {
-            $table->integer('notification_id');
-            $table->integer('product_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('token', 32);
         });
     }
 
@@ -27,6 +25,8 @@ class CreateSubscribesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subscribes');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('token');
+        });
     }
 }
