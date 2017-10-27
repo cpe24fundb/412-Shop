@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
     public function viewAllProducts()
     {
-        return view('product.all_product', [
+        $products = Product::all();
+
+        return view('product.all', [
             'title' => 'All Products',
+            'products' => $products
         ]);
     }
 }
