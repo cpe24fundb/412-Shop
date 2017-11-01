@@ -18,7 +18,7 @@ class ProductController extends Controller
 
     public function viewProductsByCategory($category)
     {
-        $products = Product::all();
+        $products = DB::table('products')->leftJoin('product_categories', 'products.product_category_id', '=', 'product_categories.id')->get();
 
         return view('product.byCategory', [
             'title' => 'Products By Categories - $category',
