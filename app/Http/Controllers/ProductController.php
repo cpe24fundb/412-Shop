@@ -15,4 +15,15 @@ class ProductController extends Controller
             'products' => $products
         ]);
     }
+
+    public function viewProductsByCategory($category)
+    {
+        $products = Product::all();
+
+        return view('product.byCategory', [
+            'title' => 'Products By Categories - $category',
+            'products' => $products,
+            'category' => $category
+        ]);
+    }
 }

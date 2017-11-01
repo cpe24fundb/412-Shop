@@ -12,3 +12,4 @@
 */
 
 $router->get('/', 'ProductController@viewAllProducts');
+$router->get('/products/category/{category}', 'ProductController@viewProductsByCategory');
