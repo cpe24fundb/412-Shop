@@ -48,7 +48,7 @@ class ProductController extends Controller
                         ->selectRaw('*, sum(quality) as sum')->limit(4)
                         ->get();
                     
-         return view('product.homepage', [
+         return view('product.popular', [
             'title' => 'Home Page',
             'billitems' => $BillItems
         ]);
