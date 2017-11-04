@@ -17,3 +17,5 @@ $router->get('/category', 'ProductController@viewAllCategories');
 $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory');
 
 $router->get('/', 'ProductController@viewPopularProduct');
+
+$router->get('/followproduct/{id}', 'ProductController@followProduct');
