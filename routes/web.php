@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+product| Application Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register all of the routes for an application.
@@ -12,5 +12,8 @@
 */
 
 $router->get('/', 'ProductController@viewAllProducts');
+
 $router->get('/category', 'ProductController@viewAllCategories');
 $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory');
+
+$router->get('/', 'ProductController@viewPopularProduct');
