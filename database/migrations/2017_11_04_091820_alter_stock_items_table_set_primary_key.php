@@ -15,7 +15,6 @@ class AlterStockItemsTableSetPrimaryKey extends Migration
     {
         Schema::table('stock_items', function (Blueprint $table) {
             $table->primary(['product_id', 'stock_id']);
-            
         });
     }
 
@@ -27,8 +26,7 @@ class AlterStockItemsTableSetPrimaryKey extends Migration
     public function down()
     {
         Schema::table('stock_items', function (Blueprint $table) {
-            $table->dropPrimary('tables_product_id_stock_id_primary');
-            
+             $table->dropPrimary('tables_product_id_stock_id_primary');
         });
     }
 }
