@@ -4,7 +4,7 @@
   
   <h1 class="mt-3">All Products</h1>
 
-  @component('components.show_product_list', ['products' => $products])
+  @component('components.products_grid', ['products' => $products])
   @endcomponent
 
 @endsection
