@@ -18,6 +18,7 @@ install:
   - composer install
 
 before_script:
+  - cp .env.sample .env
   - mysql -e 'create database 412shop;'
   - export DB_DATABASE='412shop'
   - export DB_USERNAME=travis
