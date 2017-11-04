@@ -11,9 +11,9 @@
 |
 */
 
-$router->get('/', 'ProductController@viewAllProducts');
+$router->get('/product', 'ProductController@viewAllProducts');
 
 $router->get('/category', 'ProductController@viewAllCategories');
 $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory');
 
-$router->get('/home', 'ProductController@viewProducts');
+$router->get('/', 'ProductController@viewProducts');
