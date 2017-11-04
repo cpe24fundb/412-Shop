@@ -11,7 +11,12 @@
 |
 */
 
-$router->get('/', 'ProductController@viewAllProducts');
+$router->get('/', 'ProductController@viewPopularProduct');
+
+$router->get('/product', 'ProductController@viewAllProducts');
+
+$router->get('/category', 'ProductController@viewAllCategories');
+$router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory');
 
 $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($router) {
     $router->get('/', function () {

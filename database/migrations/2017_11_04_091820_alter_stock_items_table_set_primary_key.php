@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBillItemsTable extends Migration
+class AlterStockItemsTableSetPrimaryKey extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateBillItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bill_items', function (Blueprint $table) {
-            $table->integer('bill_id');
-            $table->timestamps();
-            $table->integer('product_id');
-            $table->integer('quantity');
+        Schema::table('stock_items', function (Blueprint $table) {
+            $table->primary(['product_id', 'stock_id']);
         });
     }
 
@@ -28,6 +25,8 @@ class CreateBillItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bill_items');
+        Schema::table('stock_items', function (Blueprint $table) {
+             $table->dropPrimary('tables_product_id_stock_id_primary');
+        });
     }
 }
