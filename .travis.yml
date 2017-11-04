@@ -1,0 +1,33 @@
+language: php
+
+php:
+  - 7.1.10
+  - 7.0
+
+sudo: false
+
+cache:
+  directories:
+    - vender
+    - $HOME/.composer/cache
+
+services:
+  - mysql
+
+install:
+  - composer install
+
+before_script:
+  - mysql -e 'create database 412shop;'
+  - export DB_DATABASE='412shop'
+  - export DB_USERNAME=travis
+  - export DB_PASSWORD=
+  - php artisan migrate --seed --force
+
+script: 
+  - phpunit
+
+branches:
+  only:
+    - master
+    - develop
