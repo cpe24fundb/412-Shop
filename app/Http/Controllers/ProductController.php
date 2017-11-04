@@ -18,9 +18,11 @@ class ProductController extends Controller
         ]);
     }
     
-    public function viewProductsByCategory($category)
+    public function viewProductsByCategory($categoryId)
     {
-        $products = DB::table('products')->leftJoin('product_categories', 'products.product_category_id', '=', 'product_categories.id')->get();
+        // DB::table('products')->leftJoin('product_categories', 'products.product_category_id', '=', 'product_categories.id')->get();
+        $category = ProductCategory::findOrFail($categoryId);
+        $products = $category->product;
 
         return view('product.byCategory', [
             'title' => 'Products By Categories - $category',
@@ -31,7 +33,6 @@ class ProductController extends Controller
 
     public function viewAllCategories()
     {
-        // $categories = DB::table('product_categories')->get();
         $categories = ProductCategory::all();
 
         return view('product.allCategory', [

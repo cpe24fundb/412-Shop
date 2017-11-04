@@ -2,7 +2,7 @@
 
 @section('content') 
   
-  <h1 class="mt-3">By Products Categories - {{$category}}</h1>
+  <h1 class="mt-3">By Products Categories - {{$category->name}}</h1>
 
   <div class="row">  
     @foreach ($products as $product)
