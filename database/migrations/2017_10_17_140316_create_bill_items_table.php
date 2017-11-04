@@ -17,7 +17,7 @@ class CreateBillItemsTable extends Migration
             $table->integer('bill_id');
             $table->timestamps();
             $table->integer('product_id');
-            $table->integer('quality');
+            $table->integer('quantity');
         });
     }
 
