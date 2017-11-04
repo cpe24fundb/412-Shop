@@ -18,4 +18,4 @@ $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory
 
 $router->get('/', 'ProductController@viewPopularProduct');
 
-$router->get('/followproduct/{id}', 'ProductController@followProduct');
+$router->get('/follow/{id}', 'ProductController@viewFollow');
