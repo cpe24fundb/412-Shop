@@ -48,7 +48,7 @@ class StockItemSeeder extends Seeder
         ]);
 
         DB::table('stock_items')->insert([
-            'product_id' => 4,
+            'product_id' => 5,
             'stock_id' => 1111,
             'quantity' => 10,
             'price' => 400,

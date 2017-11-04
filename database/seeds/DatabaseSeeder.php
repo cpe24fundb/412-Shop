@@ -13,11 +13,11 @@ class DatabaseSeeder extends Seeder
     {
         Schema::disableForeignKeyConstraints();
         $this->call('ProductSeeder');
-        $this->call('ProductcategorySeeder');
+        $this->call('ProductCategorySeeder');
         $this->call('StockSeeder');
-        $this->call('StockitemSeeder');
+        $this->call('StockItemSeeder');
         $this->call('BillSeeder');
-        $this->call('BillitemSeeder');
+        $this->call('BillItemSeeder');
         Schema::enableForeignKeyConstraints();
     }
 }
