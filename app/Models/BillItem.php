@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bill_items extends Model
+class BillItem extends Model
 {
     public function product()
     {
