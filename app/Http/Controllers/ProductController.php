@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\ProductCategory;
-use Illuminate\Support\Facades\DB;
+use App\Models\BillItem;
 
 class ProductController extends Controller
 {
@@ -37,6 +37,20 @@ class ProductController extends Controller
         return view('product.allCategory', [
             'title' => 'All Categories',
             'categories' => $categories
+        ]);
+
+    }
+
+    public function viewProducts()
+    {   
+        $BillItems = BillItem::with('product')->orderBy('product_id', 'desc')
+                        ->groupBy('product_id')
+                        ->selectRaw('*, sum(quality) as sum')->limit(4)
+                        ->get();
+                    
+         return view('product.homepage', [
+            'title' => 'Home Page',
+            'billitems' => $BillItems
         ]);
     }
 }
