@@ -2,13 +2,12 @@ language: php
 
 php:
   - 7.1.10
-  - 7.0
 
 sudo: false
 
 cache:
   directories:
-    - vender
+    - vendor
     - $HOME/.composer/cache
 
 services:
