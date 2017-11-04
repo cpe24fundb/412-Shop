@@ -41,7 +41,7 @@ class ProductController extends Controller
 
     }
 
-    public function viewProducts()
+    public function viewPopularProduct()
     {   
         $BillItems = BillItem::with('product')->orderBy('product_id', 'desc')
                         ->groupBy('product_id')
