@@ -17,7 +17,7 @@ class CreateBillsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->decimal('line_total', 13, 4);
-            $table->integer('quality');
+            $table->integer('quantity');
         });
     }
 
