@@ -45,7 +45,7 @@ class ProductController extends Controller
     {   
         $BillItems = BillItem::with('product')->orderBy('product_id', 'desc')
                         ->groupBy('product_id')
-                        ->selectRaw('*, sum(quantity) as sum')->limit(4)
+                        ->selectRaw('*, sum(quantity) as sum')->limit(9)
                         ->get();
                     
          return view('product.popular', [
