@@ -11,6 +11,7 @@ class StockItemSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('stock_items')->delete();
         DB::table('stock_items')->insert([
             'product_id' => 1,
             'stock_id' => 1111,

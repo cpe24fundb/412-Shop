@@ -53,4 +53,14 @@ class ProductController extends Controller
             'billitems' => $BillItems
         ]);
     }
+
+    public function viewDetailProducts($productId)
+    {
+        $products = Product::findOrFail($productId);
+
+        return view('product.detailProduct', [
+             'title' => 'Products - $products',
+             'product' => $products,
+        ]);
+    }
 }
