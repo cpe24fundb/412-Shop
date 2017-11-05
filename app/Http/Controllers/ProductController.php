@@ -54,7 +54,7 @@ class ProductController extends Controller
         });
 
          return view('product.popular', [
-            'title' => 'Home Page',
+            'title' => 'Popular Product',
             'products' => $products
         ]);
     }
