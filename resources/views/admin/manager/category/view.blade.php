@@ -22,11 +22,11 @@
           <label for="description">Description</label>
           <input type="text" class="form-control" name="description" id="description" placeholder="Something you can eat" @isset($category) value="{{$category->description}}" @endisset>
         </div>
-        <button type="submit" class="btn btn-primary">
         @isset($category)
-          Save
+          <button type="submit" class="btn btn-warning">Save</button>
+          <a href="/shop-admin/manager/category" class="btn btn-info">Cancel</a>
         @else
-          Create
+          <button type="submit" class="btn btn-primary">Create</button>
         @endisset
         </button>
       </form>
