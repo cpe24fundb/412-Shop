@@ -18,6 +18,7 @@ class CreateBillItemsTable extends Migration
             $table->timestamps();
             $table->integer('product_id');
             $table->integer('quantity');
+            $table->decimal('price', 13, 4);
         });
     }
 
