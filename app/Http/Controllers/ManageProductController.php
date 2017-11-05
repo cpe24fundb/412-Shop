@@ -36,7 +36,7 @@ class ManageProductController extends Controller
     {
         $product = new Product;
         $product->name = $request->input('name');
-        $product->catagory()->associate($request->input('category'));
+        $product->productCategory()->associate($request->input('category'));
         $product->retail_price = $request->input('retail_price');
         $product->image = $request->input('image', '');
         $product->save();
@@ -48,7 +48,7 @@ class ManageProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $product->name = $request->input('name') ?? $product->name;
-        $product->catagory()->associate($request->input('category'));
+        $product->productCategory()->associate($request->input('category'));
         $product->retail_price = $request->input('retail_price') ?? $product->retail_price;
         $product->image = $request->input('image', '') ?? $product->image;
         $product->save();
