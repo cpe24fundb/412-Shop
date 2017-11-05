@@ -8,7 +8,7 @@
 | Here is where you can register all of the routes for an application.
 | It is a breeze. Simply tell Lumen the URIs it should respond to
 | and give it the Closure to call when that URI is requested.
-|
+|z
 */
 
 $router->get('/', 'ProductController@viewPopularProduct');
@@ -18,11 +18,6 @@ $router->get('/product', 'ProductController@viewAllProducts');
 $router->get('/category', 'ProductController@viewAllCategories');
 $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory');
 
-<<<<<<< HEAD
-$router->get('/', 'ProductController@viewPopularProduct');
-
-$router->get('/follow/{id}', 'ProductController@viewFollow');
-=======
 $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($router) {
     $router->get('/', function () {
             return redirect()->route('admin.statistic.dashboard');
@@ -44,4 +39,3 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
             }]);
     });
 });
->>>>>>> 155e217ea01792254e7e079b4472cbe87790add6
