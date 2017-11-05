@@ -20,8 +20,8 @@ $router->get('/category', 'ProductController@viewAllCategories');
 $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory');
 
 $router->get('/feedback', function(){
-    return view('feedback', [
-        'title' => 'Feedback - form'
+    return view('feedbackForm', [
+        'title' => 'Feedback'
     ]);
 });
 
