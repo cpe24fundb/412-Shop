@@ -20,15 +20,42 @@ $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory
 
 $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($router) {
     $router->get('/', function () {
-            return redirect()->route('admin.statistic.dashboard');
-        });
+        return redirect()->route('admin.statistic.dashboard');
+    });
 
     $router->group(['prefix' => 'manager', 'as' => 'manager'], function () use ($router) {
         $router->get('/', [
             'as' => 'dashboard',
             'use' => function () {
                 return view('admin.manager.dashboard');
-            }]);
+            }
+        ]);
+        
+        $router->group(['prefix' => 'category', 'as' => 'category'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageCategoryController@all'
+            ]);
+
+            $router->get('{id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageCategoryController@view'
+            ]);
+
+            $router->get('{id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageCategoryController@delete'
+            ]);
+
+            $router->post('{id:[0-9]+}', [
+                'as' => 'edit',
+                'uses' => 'ManageCategoryController@edit'
+            ]);
+
+            $router->post('/', [
+                'as' => 'create',
+                'uses' => 'ManageCategoryController@create'
+            ]);
+        });
     });
 
     $router->group(['prefix' => 'statistic', 'as' => 'statistic'], function () use ($router) {
@@ -36,6 +63,7 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
             'as' => 'dashboard',
             'use' => function () {
                 return redirect()->route('admin.manager.dashboard');
-            }]);
+            }
+        ]);
     });
 });
