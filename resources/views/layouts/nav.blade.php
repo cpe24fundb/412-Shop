@@ -14,9 +14,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/category">Category</a>
         </li>
-        <li class="nav-item" >
+        <!-- <li class="nav-item" >
           <a class="nav-link" href="/following" disabled="true">Following</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="/feedback">Feedback</a>
         </li>
