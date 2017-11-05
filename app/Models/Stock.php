@@ -15,4 +15,9 @@ class Stock extends Model
     {
         return $this->hasMany('App\Models\StockItems');
     }
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product', 'stock_items')->withPivot('quantity');
+    }
 }
