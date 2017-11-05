@@ -8,7 +8,7 @@ class Bill extends Model
 {
     public function items()
     {
-        return $this->hasMany('App\Models\BillItems');
+        return $this->hasMany('App\Models\BillItem');
     }
 
     public function products()
