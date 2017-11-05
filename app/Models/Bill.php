@@ -10,4 +10,9 @@ class Bill extends Model
     {
         return $this->hasMany('App\Models\BillItems');
     }
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product', 'bill_items')->withPivot('quantity');
+    }
 }
