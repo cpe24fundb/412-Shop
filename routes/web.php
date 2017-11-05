@@ -112,6 +112,44 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
                 'uses' => 'ManageUserController@create'
             ]);
         });
+
+        $router->group(['prefix' => 'stock', 'as' => 'stock'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageStockController@all'
+            ]);
+
+            $router->get('{stock_id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageStockController@view'
+            ]);
+
+            $router->get('{stock_id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageStockController@delete'
+            ]);
+
+            $router->post('{stock_id:[0-9]+}', [
+                'as' => 'edit',
+                'uses' => 'ManageStockController@edit'
+            ]);
+
+            $router->post('/', [
+                'as' => 'create',
+                'uses' => 'ManageStockController@create'
+            ]);
+
+            $router->group(['prefix' => '{stock_id:[0-9]+}/item', 'as' => 'item'], function () use ($router) {
+                $router->get('{product_id:[0-9]+}/delete', [
+                    'as' => 'delete',
+                    'uses' => 'ManageStockController@deleteItem'
+                ]);
+    
+                $router->post('/', [
+                    'as' => 'create',
+                    'uses' => 'ManageStockController@createItem'
+                ]);
+            });
+        });
     });
 
     $router->group(['prefix' => 'statistic', 'as' => 'statistic'], function () use ($router) {
