@@ -150,6 +150,44 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
                 ]);
             });
         });
+
+        $router->group(['prefix' => 'bill', 'as' => 'bill'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageBillController@all'
+            ]);
+
+            $router->get('{bill_id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageBillController@view'
+            ]);
+
+            $router->get('{bill_id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageBillController@delete'
+            ]);
+
+            $router->post('{bill_id:[0-9]+}', [
+                'as' => 'edit',
+                'uses' => 'ManageBillController@edit'
+            ]);
+
+            $router->post('/', [
+                'as' => 'create',
+                'uses' => 'ManageBillController@create'
+            ]);
+
+            $router->group(['prefix' => '{bill_id:[0-9]+}/item', 'as' => 'item'], function () use ($router) {
+                $router->get('{product_id:[0-9]+}/delete', [
+                    'as' => 'delete',
+                    'uses' => 'ManageBillController@deleteItem'
+                ]);
+    
+                $router->post('/', [
+                    'as' => 'create',
+                    'uses' => 'ManageBillController@createItem'
+                ]);
+            });
+        });
     });
 
     $router->group(['prefix' => 'statistic', 'as' => 'statistic'], function () use ($router) {
