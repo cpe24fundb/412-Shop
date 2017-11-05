@@ -45,6 +45,11 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
                 'as' => 'edit',
                 'uses' => 'ManageCategoryController@edit'
             ]);
+
+            $router->get('{id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageCategoryController@delete'
+            ]);
         });
     });
 

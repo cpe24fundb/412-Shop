@@ -36,4 +36,12 @@ class ManageCategoryController extends Controller
 
         return redirect()->route('admin.manager.category');
     }
+
+    public function delete($id)
+    {
+        $category = ProductCategory::findOrFail($id);
+        $category->delete();
+
+        return redirect()->route('admin.manager.category');
+    }
 }
