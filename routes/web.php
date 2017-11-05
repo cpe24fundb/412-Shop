@@ -14,6 +14,7 @@
 $router->get('/', 'ProductController@viewPopularProduct');
 
 $router->get('/product', 'ProductController@viewAllProducts');
+$router->get('/product/{productId}', 'ProductController@viewDetailProducts');
 
 $router->get('/category', 'ProductController@viewAllCategories');
 $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory');
