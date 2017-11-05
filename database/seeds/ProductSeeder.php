@@ -20,7 +20,8 @@ class ProductSeeder extends Seeder
             'ian' => '7612100053805',
             'image' => '/image/no_image.svg',
             'created_at' => '2017-10-25 11:59:59',
-            'updated_at' => '2017-10-25 11:59:59'
+            'updated_at' => '2017-10-25 11:59:59',
+            'image' => 'https://pbs.twimg.com/media/DIUQ8ibUEAAyc5k.jpg'
         ]);
 
         DB::table('products')->insert([
@@ -32,7 +33,8 @@ class ProductSeeder extends Seeder
             'ian' => '2212100053805',
             'image' => '/image/no_image.svg',
             'created_at' => '2017-10-24 10:00:23',
-            'updated_at' => '2017-10-24 10:00:23'
+            'updated_at' => '2017-10-24 10:00:23',
+            'image' => 'https://secure.ap-tescoassets.com/assets/TH/035/8850309140035/ShotType1_328x328.jpg'
         ]);
 
         DB::table('products')->insert([
@@ -44,7 +46,8 @@ class ProductSeeder extends Seeder
             'ian' => '5661100874326',
             'image' => '/image/no_image.svg',
             'created_at' => '2017-10-27 8:00:11',
-            'updated_at' => '2017-10-27 8:00:11'
+            'updated_at' => '2017-10-27 8:00:11',
+            'image' => 'http://www.farmhouse.co.th/uploads/products/2015/4/1429513646.png'
         ]);
 
         DB::table('products')->insert([
@@ -56,7 +59,8 @@ class ProductSeeder extends Seeder
             'ian' => '8345683312456',
             'image' => '/image/no_image.svg',
             'created_at' => '2017-10-28 9:30:45',
-            'updated_at' => '2017-10-28 9:30:45'
+            'updated_at' => '2017-10-28 9:30:45',
+            'image' => 'https://www.waangoo.com/content/images/thumbs/0010320_mentos-incredible-chew-grape_600.jpeg'
         ]);
 
         DB::table('products')->insert([
@@ -68,7 +72,8 @@ class ProductSeeder extends Seeder
             'ian' => '0145123435678',
             'image' => '/image/no_image.svg',
             'created_at' => '2017-11-1 00:54:39',
-            'updated_at' => '2017-11-1 00:54:39'
+            'updated_at' => '2017-11-1 00:54:39',
+            'image' => 'https://grandcondom.com/image/cache/data/durex-comfort/durex-comfort-zoom-750x750.jpg'
         ]);
     }
 }
