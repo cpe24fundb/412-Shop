@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stock extends Model
 {
-    public function users()
+    public function user()
     {
         return $this->belongsTo('App\Models\User');
     }
 
     public function items()
     {
-        return $this->hasMany('App\Models\StockItems');
+        return $this->hasMany('App\Models\StockItem');
     }
 
     public function products()
