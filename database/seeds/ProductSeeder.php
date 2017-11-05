@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'id' => 1,
             'product_category_id' => 101,
-            'retaiL_price' => 15.0,
+            'retail_price' => 15.0,
             'name' => 'Nama Matcha Corn Snack',
             'description' => '7-select snack',
             'ian' => '7612100053805',
