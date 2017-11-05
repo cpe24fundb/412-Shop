@@ -18,6 +18,7 @@ class ProductSeeder extends Seeder
             'name' => 'Nama Matcha Corn Snack',
             'description' => '7-select snack',
             'ian' => '7612100053805',
+            'image' => '/image/no_image.svg',
             'created_at' => '2017-10-25 11:59:59',
             'updated_at' => '2017-10-25 11:59:59'
         ]);
@@ -29,6 +30,7 @@ class ProductSeeder extends Seeder
             'name' => 'LUSH',
             'description' => 'Chocolate Chewy Candy',
             'ian' => '2212100053805',
+            'image' => '/image/no_image.svg',
             'created_at' => '2017-10-24 10:00:23',
             'updated_at' => '2017-10-24 10:00:23'
         ]);
@@ -40,6 +42,7 @@ class ProductSeeder extends Seeder
             'name' => 'Chocolate Custard Bun',
             'description' => 'fram house chocolate bun',
             'ian' => '5661100874326',
+            'image' => '/image/no_image.svg',
             'created_at' => '2017-10-27 8:00:11',
             'updated_at' => '2017-10-27 8:00:11'
         ]);
@@ -51,6 +54,7 @@ class ProductSeeder extends Seeder
             'name' => 'Mentos Incredible Chew',
             'description' => 'mentos incredible chew grape flavour',
             'ian' => '8345683312456',
+            'image' => '/image/no_image.svg',
             'created_at' => '2017-10-28 9:30:45',
             'updated_at' => '2017-10-28 9:30:45'
         ]);
@@ -62,6 +66,7 @@ class ProductSeeder extends Seeder
             'name' => 'durex',
             'description' => 'condom',
             'ian' => '0145123435678',
+            'image' => '/image/no_image.svg',
             'created_at' => '2017-11-1 00:54:39',
             'updated_at' => '2017-11-1 00:54:39'
         ]);

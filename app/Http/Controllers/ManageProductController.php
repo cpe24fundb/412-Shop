@@ -39,7 +39,7 @@ class ManageProductController extends Controller
         $product->name = $request->input('name');
         $product->productCategory()->associate($request->input('category'));
         $product->retail_price = $request->input('retail_price');
-        $product->image = $request->input('image', '');
+        $product->image = $request->input('image', '/image/no_image.svg');
         $product->save();
 
         return redirect()->route('admin.manager.product');
@@ -52,7 +52,7 @@ class ManageProductController extends Controller
         $product->name = $request->input('name') ?? $product->name;
         $product->productCategory()->associate($request->input('category'));
         $product->retail_price = $request->input('retail_price') ?? $product->retail_price;
-        $product->image = $request->input('image', '') ?? $product->image;
+        $product->image = $request->input('image') ?? $product->image;
         $product->save();
 
         return redirect()->route('admin.manager.product');
