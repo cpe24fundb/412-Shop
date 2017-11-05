@@ -48,10 +48,14 @@ class ProductController extends Controller
                         ->groupBy('product_id')
                         ->selectRaw('*, sum(quantity) as sum')->limit(9)
                         ->get();
-                    
+
+        $products = $BillItems->map(function($billItem) {
+            return $billItem->product;
+        });
+
          return view('product.popular', [
             'title' => 'Home Page',
-            'billitems' => $BillItems
+            'products' => $products
         ]);
     }
 
