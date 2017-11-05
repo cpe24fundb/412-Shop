@@ -19,11 +19,7 @@ $router->get('/product/{productId}', 'ProductController@viewDetailProducts');
 $router->get('/category', 'ProductController@viewAllCategories');
 $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory');
 
-$router->get('/feedback', function(){
-    return view('feedbackForm', [
-        'title' => 'Feedback'
-    ]);
-});
+$router->get('/feedback', 'FeedbackController@view');
 
 $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($router) {
     $router->get('/', function () {
