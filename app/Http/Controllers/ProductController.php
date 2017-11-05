@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\BillItem;
+use App\Models\Notification;
+
 
 class ProductController extends Controller
 {
@@ -51,6 +53,17 @@ class ProductController extends Controller
          return view('product.popular', [
             'title' => 'Home Page',
             'billitems' => $BillItems
+        ]);
+    }
+
+    public function viewFollow($id)
+    {   
+        $notification = Notification::findOrFail($id);
+        $products = $notification->products;
+
+        return view('product.follow', [
+            'title' => 'subscriber ',
+            'products' => $products,
         ]);
     }
 }
