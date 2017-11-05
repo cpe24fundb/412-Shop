@@ -16,6 +16,10 @@
         @endisset
 
         <div class="form-group">
+          <label for="name">IAN</label>
+          <input type="text" class="form-control" name="ian" id="ian" required placeholder="eg. 761210005305" @isset($product) value="{{$product->ian}}" @endisset>
+        </div>
+        <div class="form-group">
           <label for="name">Name</label>
           <input type="text" class="form-control" name="name" id="name" required placeholder="eg. Food" @isset($product) value="{{$product->name}}" @endisset>
         </div>
@@ -54,6 +58,7 @@
         <thead>
           <tr>
             <th>#</th>
+            <th>IAN</th>
             <th>Name</th>
             <th>Category</th>
             <th>Retail Price</th>
@@ -65,6 +70,7 @@
           @foreach($products as $product)
             <tr>
               <td>{{ $product->id }}</td>
+              <td>{{ $product->ian }}</td>
               <td>{{ $product->name }}</td>
               <td>{{ $product->productCategory->name }}</td>
               <td>{{ $product->retail_price }}</td>

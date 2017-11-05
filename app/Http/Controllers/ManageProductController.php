@@ -35,6 +35,7 @@ class ManageProductController extends Controller
     public function create(Request $request)
     {
         $product = new Product;
+        $product->ian = $request->input('ian');
         $product->name = $request->input('name');
         $product->productCategory()->associate($request->input('category'));
         $product->retail_price = $request->input('retail_price');
@@ -47,6 +48,7 @@ class ManageProductController extends Controller
     public function edit(Request $request, $id)
     {
         $product = Product::findOrFail($id);
+        $product->ian = $request->input('ian') ?? $product->ian;
         $product->name = $request->input('name') ?? $product->name;
         $product->productCategory()->associate($request->input('category'));
         $product->retail_price = $request->input('retail_price') ?? $product->retail_price;
