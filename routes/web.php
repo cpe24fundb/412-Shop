@@ -19,6 +19,9 @@ $router->get('/product/{productId}', 'ProductController@viewDetailProducts');
 $router->get('/category', 'ProductController@viewAllCategories');
 $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory');
 
+$router->get('/feedback', 'FeedbackController@view');
+$router->post('/feedback', 'FeedbackController@create');
+
 $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($router) {
     $router->get('/', function () {
         return redirect()->route('admin.statistic.dashboard');
