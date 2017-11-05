@@ -61,6 +61,7 @@ class ManageStockController extends Controller
     public function delete($id)
     {
         $stock = Stock::findOrFail($id);
+        $stock->items()->delete();
         $stock->delete();
 
         return redirect()->route('admin.manager.stock');
