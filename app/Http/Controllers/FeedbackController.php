@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use App\Models\ProductCategory;
-use App\Models\BillItem;
-use App\Models\Notification;
-
+use App\Models\Feedback;
+use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
 {
@@ -15,5 +12,15 @@ class FeedbackController extends Controller
         return view('feedbackForm', [
             'title' => 'Feedback'
         ]);
+    }
+
+    public function create(Request $request)
+    {
+        $feedback = new Feedback;
+        $feedback->name = $request->input('name');
+        $feedback->comment = $request->input('comment');
+        $feedback->save();
+
+        return redirect('/');
     }
 }

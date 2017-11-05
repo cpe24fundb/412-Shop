@@ -10,11 +10,11 @@
         <div class="row justify-content-md-center">
                 <div class="col-sm-10 col-md-9">
                     <label for="nameInputField">Name</label>
-                    <input type="email" class="form-control" id="nameInputField" aria-describedby="emailHelp" placeholder="Name">
+                    <input type="text" class="form-control" name="name" placeholder="Name">
 
                     <div class="form-group">
                         <label for="commentFormField">Comment</label>
-                        <textarea class="form-control" id="commentFormField" rows="4"></textarea>
+                        <textarea class="form-control" name="comment" rows="4"></textarea>
                     </div>
                 </div>
         </div>
