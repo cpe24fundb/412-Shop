@@ -13,8 +13,8 @@
         <h4 class="card-title">{{ $category->name }}</h4>
         <p class="card-text">{{ $category->description }}</p>
       </div>
-      <div class="card-body">
-        <a href="#" class="card-link">More</a>
+      <div class="card-body"> 
+        <a href="/category/{{ $category->id }}" class="btn btn-primary" style="width:100%">See More</a>
       </div>
     </div>
   </div>
