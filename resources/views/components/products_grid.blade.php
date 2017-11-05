@@ -7,7 +7,7 @@
       <h4 class="card-title">{{ $product->name }}</h4>
       <p class="card-text">{{ $product->retail_price }}</p>
     </div>
-    <div class="card-body">
+    <div class="card-footer">
       <a href="#" class="card-link">Detail</a>
     </div>
   </div>
