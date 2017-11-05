@@ -26,7 +26,7 @@ class AlterProductTableAddBarcode extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('ian', 15);
+            $table->dropColumn('ian', 15);
         });
     }
 }
