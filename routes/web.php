@@ -57,6 +57,32 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
                 'uses' => 'ManageCategoryController@create'
             ]);
         });
+
+        $router->group(['prefix' => 'product', 'as' => 'product'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageProductController@all'
+            ]);
+
+            $router->get('{id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageProductController@view'
+            ]);
+
+            $router->get('{id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageProductController@delete'
+            ]);
+
+            $router->post('{id:[0-9]+}', [
+                'as' => 'edit',
+                'uses' => 'ManageProductController@edit'
+            ]);
+
+            $router->post('/', [
+                'as' => 'create',
+                'uses' => 'ManageProductController@create'
+            ]);
+        });
     });
 
     $router->group(['prefix' => 'statistic', 'as' => 'statistic'], function () use ($router) {

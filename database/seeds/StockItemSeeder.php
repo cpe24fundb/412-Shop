@@ -15,7 +15,7 @@ class StockItemSeeder extends Seeder
             'product_id' => 1,
             'stock_id' => 1111,
             'quantity' => 40,
-            'price' => 480,
+            'price' => 12,
             'created_at' => '2017-11-4 8:00:11',
             'updated_at' => '2017-11-4 8:00:11',
         ]);
@@ -24,7 +24,7 @@ class StockItemSeeder extends Seeder
             'product_id' => 2,
             'stock_id' => 1111,
             'quantity' => 55,
-            'price' => 45,
+            'price' => 9,
             'created_at' => '2017-11-4 8:00:11',
             'updated_at' => '2017-11-4 8:00:11',
         ]);
@@ -33,7 +33,7 @@ class StockItemSeeder extends Seeder
             'product_id' => 3,
             'stock_id' => 1111,
             'quantity' => 150,
-            'price' => 1050,
+            'price' => 7,
             'created_at' => '2017-11-4 8:00:11',
             'updated_at' => '2017-11-4 8:00:11',
         ]);
@@ -42,7 +42,7 @@ class StockItemSeeder extends Seeder
             'product_id' => 4,
             'stock_id' => 1111,
             'quantity' => 15,
-            'price' => 210,
+            'price' => 17,
             'created_at' => '2017-11-4 8:00:11',
             'updated_at' => '2017-11-4 8:00:11',
         ]);
@@ -51,7 +51,7 @@ class StockItemSeeder extends Seeder
             'product_id' => 5,
             'stock_id' => 1111,
             'quantity' => 10,
-            'price' => 400,
+            'price' => 40,
             'created_at' => '2017-11-4 8:00:11',
             'updated_at' => '2017-11-4 8:00:11',
         ]);
