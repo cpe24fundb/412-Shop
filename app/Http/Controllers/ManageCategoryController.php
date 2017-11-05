@@ -27,6 +27,16 @@ class ManageCategoryController extends Controller
         ]);
     }
 
+    public function create(Request $request)
+    {
+        $category = new ProductCategory;
+        $category->name = $request->input('name');
+        $category->description = $request->input('description');
+        $category->save();
+
+        return redirect()->route('admin.manager.category');
+    }
+
     public function edit(Request $request, $id)
     {
         $category = ProductCategory::findOrFail($id);
