@@ -33,9 +33,7 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
 
         $router->get('category', [
             'as' => 'category',
-            'use' => function () {
-                return view('admin.manager.dashboard');
-            }
+            'uses' => 'ManageCategoryController@view'
         ]);
     });
 
