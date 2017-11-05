@@ -40,7 +40,6 @@ class ProductController extends Controller
             'title' => 'All Categories',
             'categories' => $categories
         ]);
-
     }
 
     public function viewPopularProduct()
@@ -64,6 +63,16 @@ class ProductController extends Controller
         return view('product.follow', [
             'title' => 'subscriber ',
             'products' => $products,
+        ]);
+    }
+
+    public function viewDetailProducts($productId)
+    {
+        $products = Product::findOrFail($productId);
+
+        return view('product.detailProduct', [
+             'title' => 'Products - $products',
+             'product' => $products,
         ]);
     }
 }
