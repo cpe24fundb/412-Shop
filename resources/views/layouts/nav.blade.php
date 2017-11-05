@@ -1,7 +1,7 @@
 <header class="container">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
-    <a class="navbar-brand" href="#">412Shop</a>
+    <a class="navbar-brand" href="/">412Shop</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,13 +9,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/">Product <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/product">Product <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/category">Category</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/following">Following</a>
+        <li class="nav-item" >
+          <a class="nav-link" href="/following" disabled="true">Following</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/feedback">Feedback</a>
