@@ -30,11 +30,17 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
                 return view('admin.manager.dashboard');
             }
         ]);
+        
+        $router->group(['prefix' => 'category', 'as' => 'category'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageCategoryController@all'
+            ]);
 
-        $router->get('category', [
-            'as' => 'category',
-            'uses' => 'ManageCategoryController@view'
-        ]);
+            $router->get('{id:[0-9]+}', [
+                'as' => 'edit',
+                'uses' => 'ManageCategoryController@view'
+            ]);
+        });
     });
 
     $router->group(['prefix' => 'statistic', 'as' => 'statistic'], function () use ($router) {
