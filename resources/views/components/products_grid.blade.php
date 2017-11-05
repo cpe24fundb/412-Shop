@@ -9,7 +9,6 @@
     </div>
     <div class="card-body">
       <a href="#" class="card-link">Detail</a>
-      <a href="#" class="card-link">Follow</a>
     </div>
   </div>
 </div>
