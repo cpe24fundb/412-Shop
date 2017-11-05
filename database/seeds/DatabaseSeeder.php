@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call('StockSeeder');
         $this->call('StockItemSeeder');
         $this->call('BillSeeder');
+        $this->call('UserSeeder');
         $this->call('BillItemSeeder');
         Schema::enableForeignKeyConstraints();
     }
