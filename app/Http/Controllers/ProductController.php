@@ -7,7 +7,6 @@ use App\Models\ProductCategory;
 use App\Models\BillItem;
 use App\Models\Notification;
 
-
 class ProductController extends Controller
 {
     public function viewAllProducts()
@@ -58,12 +57,22 @@ class ProductController extends Controller
 
     public function viewFollow($id)
     {   
-        $notification = Notification::findOrFail($id);
-        $products = $notification->products;
+            $notification = Notification::findOrFail($id);
+            $products = $notification->products;
 
-        return view('product.follow', [
-            'title' => 'subscriber ',
-            'products' => $products,
+            return view('product.follow', [
+                'title' => 'subscriber ',
+                'products' => $products,
+            ]);
+    }
+
+    public function viewDetailProducts($productId)
+    {
+        $products = Product::findOrFail($productId);
+
+        return view('product.detailProduct', [
+             'title' => 'Products - $products',
+             'product' => $products,
         ]);
     }
 }
