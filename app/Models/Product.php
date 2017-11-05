@@ -15,4 +15,14 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Models\Notification', 'subscribes');
     }
+
+    public function bills()
+    {
+        return $this->belongsToMany('App\Models\Bill', 'bill_items')->withPivot('quantity');
+    }
+
+    public function stocks()
+    {
+        return $this->belongsToMany('App\Models\Stock', 'stock_items')->withPivot('quantity');
+    }
 }
