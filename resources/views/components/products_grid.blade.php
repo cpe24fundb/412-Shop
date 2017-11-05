@@ -8,7 +8,7 @@
       <p class="card-text">{{ $product->retail_price }}</p>
     </div>
     <div class="card-footer">
-      <a href="#" class="card-link">Detail</a>
+      <a href="/product/{{ $product->id }}" class="card-link">Detail</a>
     </div>
   </div>
 </div>
