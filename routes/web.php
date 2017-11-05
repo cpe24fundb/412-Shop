@@ -37,8 +37,13 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
             ]);
 
             $router->get('{id:[0-9]+}', [
-                'as' => 'edit',
+                'as' => 'view',
                 'uses' => 'ManageCategoryController@view'
+            ]);
+
+            $router->post('{id:[0-9]+}', [
+                'as' => 'edit',
+                'uses' => 'ManageCategoryController@edit'
             ]);
         });
     });
