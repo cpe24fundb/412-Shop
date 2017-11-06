@@ -25,4 +25,8 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Models\Stock', 'stock_items')->withPivot('quantity');
     }
+
+    public function balance(){
+        return $this->stocks->sum('pivot.quantity') - $this->bills->sum('pivot.quantity');
+    }
 }
