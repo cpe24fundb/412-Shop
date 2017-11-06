@@ -20,6 +20,9 @@
   </ul>
 
   <ul class="nav nav-pills flex-column">
+  <li class="nav-item">
+      <a class="nav-link" href="/shop-admin/manager/feedback">Feedback</a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="/shop-admin/manager/notification">Notification</a>
     </li>
