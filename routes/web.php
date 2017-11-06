@@ -30,9 +30,7 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
     $router->group(['prefix' => 'manager', 'as' => 'manager'], function () use ($router) {
         $router->get('/', [
             'as' => 'dashboard',
-            'use' => function () {
-                return view('admin.manager.dashboard');
-            }
+            'uses' => 'ManageDashboardController@view'
         ]);
         
         $router->group(['prefix' => 'category', 'as' => 'category'], function () use ($router) {
@@ -110,6 +108,119 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
             $router->post('/', [
                 'as' => 'create',
                 'uses' => 'ManageUserController@create'
+            ]);
+        });
+
+        $router->group(['prefix' => 'stock', 'as' => 'stock'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageStockController@all'
+            ]);
+
+            $router->get('{stock_id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageStockController@view'
+            ]);
+
+            $router->get('{stock_id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageStockController@delete'
+            ]);
+
+            $router->post('{stock_id:[0-9]+}', [
+                'as' => 'edit',
+                'uses' => 'ManageStockController@edit'
+            ]);
+
+            $router->post('/', [
+                'as' => 'create',
+                'uses' => 'ManageStockController@create'
+            ]);
+
+            $router->group(['prefix' => '{stock_id:[0-9]+}/item', 'as' => 'item'], function () use ($router) {
+                $router->get('{product_id:[0-9]+}/delete', [
+                    'as' => 'delete',
+                    'uses' => 'ManageStockController@deleteItem'
+                ]);
+    
+                $router->post('/', [
+                    'as' => 'create',
+                    'uses' => 'ManageStockController@createItem'
+                ]);
+            });
+        });
+
+        $router->group(['prefix' => 'bill', 'as' => 'bill'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageBillController@all'
+            ]);
+
+            $router->get('{bill_id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageBillController@view'
+            ]);
+
+            $router->get('{bill_id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageBillController@delete'
+            ]);
+
+            $router->post('{bill_id:[0-9]+}', [
+                'as' => 'edit',
+                'uses' => 'ManageBillController@edit'
+            ]);
+
+            $router->post('/', [
+                'as' => 'create',
+                'uses' => 'ManageBillController@create'
+            ]);
+
+            $router->group(['prefix' => '{bill_id:[0-9]+}/item', 'as' => 'item'], function () use ($router) {
+                $router->get('{product_id:[0-9]+}/delete', [
+                    'as' => 'delete',
+                    'uses' => 'ManageBillController@deleteItem'
+                ]);
+    
+                $router->post('/', [
+                    'as' => 'create',
+                    'uses' => 'ManageBillController@createItem'
+                ]);
+            });
+        });
+
+        $router->group(['prefix' => 'feedback', 'as' => 'feedback'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageFeedbackController@all'
+            ]);
+
+            $router->get('{bill_id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageFeedbackController@view'
+            ]);
+
+            $router->get('{bill_id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageFeedbackController@delete'
+            ]);
+        });
+
+        $router->group(['prefix' => 'notification', 'as' => 'notification'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageNotificationController@all'
+            ]);
+
+            $router->get('{notification_id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageNotificationController@view'
+            ]);
+
+            $router->post('/', [
+                'as' => 'create',
+                'uses' => 'ManageNotificationController@create'
+            ]);
+
+            $router->get('{notification_id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageNotificationController@delete'
             ]);
         });
     });

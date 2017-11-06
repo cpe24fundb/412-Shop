@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call('BillSeeder');
         $this->call('UserSeeder');
         $this->call('BillItemSeeder');
+        $this->call('FeedbackSeeder');
         Schema::enableForeignKeyConstraints();
     }
 }
