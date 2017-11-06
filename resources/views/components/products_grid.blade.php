@@ -1,10 +1,7 @@
 <div class="row">  
 @foreach ($products as $product)
 
-<?php
-$balance = $product->balance();
-$result = ($balance != 0) ? 'On stock : '.$balance :'OUT OF STOCK';
-?>
+<?php $balance = $product->balance(); ?>
 
 <div class="col-sm-6 col-md-4 mb-4">
   <div class="card">
@@ -19,7 +16,7 @@ $result = ($balance != 0) ? 'On stock : '.$balance :'OUT OF STOCK';
           <a href="/product/{{ $product->id }}" class="btn card-link">Detail</a>
         </div>
         <div class="card">
-          <p class="btn" style="text-align:center; margin-bottom: 0;">{{ $result }}</p>
+          <p style="text-align:center; margin-bottom: 0;" class="btn"> @if(($balance) !== 0) On Stock : {{ $balance }} @else OUT OF STOCK @endif </p>
         </div>
       </div>
       
