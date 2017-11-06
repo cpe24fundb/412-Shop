@@ -7,7 +7,7 @@ $bought = 0;
 $product->stocks->each(function($stock) use (&$have){ $have += $stock->pivot->quantity;});
 $product->bills->each(function($bill) use (&$bought){ $bought += $bill->pivot->quantity;});
 $left = $have - $bought;
-// $result = ($left != 0) ? 'On stock : ' + $left :'OUT OF STOCK';
+$result = ($left != 0) ? 'On stock : '.$left :'OUT OF STOCK';
 ?>
 
 <div class="col-sm-6 col-md-4 mb-4">
@@ -23,7 +23,7 @@ $left = $have - $bought;
           <a href="/product/{{ $product->id }}" class="btn card-link">Detail</a>
         </div>
         <div class="card">
-          <p>On stock : {{ $left }}</p>
+          <p>{{ $result }}</p>
         </div>
       </div>
       
