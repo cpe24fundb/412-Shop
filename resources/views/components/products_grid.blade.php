@@ -17,13 +17,13 @@ $result = ($left != 0) ? 'On stock : '.$left :'OUT OF STOCK';
       <h4 class="card-title">{{ $product->name }}</h4>
       <p class="card-text">{{ $product->retail_price }}</p>
     </div>
-    <div class="card-footer">
+    <div class="card-footer ">
       <div class="card-group">
         <div class="card">
           <a href="/product/{{ $product->id }}" class="btn card-link">Detail</a>
         </div>
         <div class="card">
-          <p>{{ $result }}</p>
+          <p class="btn" style="text-align:center; margin-bottom: 0;">{{ $result }}</p>
         </div>
       </div>
       
