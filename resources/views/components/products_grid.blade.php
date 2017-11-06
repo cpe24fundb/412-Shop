@@ -16,7 +16,7 @@
           <a href="/product/{{ $product->id }}" class="btn card-link">Detail</a>
         </div>
         <div class="card">
-          <p style="text-align:center; margin-bottom: 0;" class="btn"> @if(($balance) !== 0) On Stock : {{ $balance }} @else <a class="text-danger">OUT OF STOCK</a> @endif </p>
+          <p style="text-align:center; margin-bottom: 0;" class="btn"> @if($balance) On Stock : {{ $balance }} @else <a class="text-danger">OUT OF STOCK</a> @endif </p>
         </div>
       </div>
       
