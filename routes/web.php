@@ -202,6 +202,27 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
                 'uses' => 'ManageFeedbackController@delete'
             ]);
         });
+
+        $router->group(['prefix' => 'notification', 'as' => 'notification'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageNotificationController@all'
+            ]);
+
+            $router->get('{notification_id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageNotificationController@view'
+            ]);
+
+            $router->post('/', [
+                'as' => 'create',
+                'uses' => 'ManageNotificationController@create'
+            ]);
+
+            $router->get('{notification_id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageNotificationController@delete'
+            ]);
+        });
     });
 
     $router->group(['prefix' => 'statistic', 'as' => 'statistic'], function () use ($router) {
