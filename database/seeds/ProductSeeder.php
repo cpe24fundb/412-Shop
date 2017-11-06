@@ -11,6 +11,7 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('products')->delete();
         DB::table('products')->insert([
             'id' => 1,
             'product_category_id' => 101,
