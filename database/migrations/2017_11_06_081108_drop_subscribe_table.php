@@ -23,6 +23,11 @@ class DropSubscribeTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::create('subscribes', function (Blueprint $table) {
+            $table->primary(['notification_id', 'product_id']);
+            $table->integer('notification_id');
+            $table->integer('product_id');
+            $table->timestamps();
+        });
     }
 }
