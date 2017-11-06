@@ -188,6 +188,22 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
                 ]);
             });
         });
+
+        $router->group(['prefix' => 'feedback', 'as' => 'feedback'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageFeedbackController@all'
+            ]);
+
+            $router->get('{bill_id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageFeedbackController@view'
+            ]);
+
+            $router->get('{bill_id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageFeedbackController@delete'
+            ]);
+        });
     });
 
     $router->group(['prefix' => 'statistic', 'as' => 'statistic'], function () use ($router) {
