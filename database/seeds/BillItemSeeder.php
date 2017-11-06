@@ -11,6 +11,7 @@ class BillItemSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('bill_items')->delete();
         DB::table('bill_items')->insert([
             'bill_id' => 1001,
             'product_id' => 1,

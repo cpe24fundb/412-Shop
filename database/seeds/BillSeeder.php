@@ -11,6 +11,7 @@ class BillSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('bills')->delete();
         DB::table('bills')->insert([
             'id' => 1001,
             'line_total' => 33,
