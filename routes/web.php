@@ -30,9 +30,7 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
     $router->group(['prefix' => 'manager', 'as' => 'manager'], function () use ($router) {
         $router->get('/', [
             'as' => 'dashboard',
-            'use' => function () {
-                return view('admin.manager.dashboard');
-            }
+            'uses' => 'ManageDashboardController@view'
         ]);
         
         $router->group(['prefix' => 'category', 'as' => 'category'], function () use ($router) {
