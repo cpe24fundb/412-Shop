@@ -73,7 +73,7 @@
               <td>{{ $product->name }}</td>
               <td>{{ $product->productCategory->name }}</td>
               <td>{{ $product->retail_price }}</td>
-              <td>{{ $product->image }}</td>
+              <td><a href="{{ $product->image }}"><img src="{{ $product->image }}" class="img-thumbnail rounded" style="max-height: 4rem;"></a></td>
               <td>
                 <a href="/shop-admin/manager/product/{{ $product->id }}" class="btn btn-outline-primary">
                   <i class="fa fa-pencil-square-o fa-lg"></i>
