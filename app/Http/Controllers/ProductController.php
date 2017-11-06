@@ -44,9 +44,9 @@ class ProductController extends Controller
 
     public function viewPopularProduct()
     {   
-        $BillItems = BillItem::with('product')->orderBy('product_id', 'desc')
+        $BillItems = BillItem::with('product')->orderBy('sum', 'desc')
                         ->groupBy('product_id')
-                        ->selectRaw('*, sum(quantity) as sum')->limit(9)
+                        ->selectRaw('product_id, sum(quantity) as sum')->limit(9)
                         ->get();
 
         $products = $BillItems->map(function($billItem) {
