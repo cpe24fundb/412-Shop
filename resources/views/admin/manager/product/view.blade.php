@@ -47,7 +47,6 @@
         @else
           <button type="submit" class="btn btn-primary">Create</button>
         @endisset
-        </button>
       </form>
     </div>
   </div>
