@@ -21,7 +21,8 @@ class UserSeeder extends Seeder
             'name' => 'aik',
             'manager_flag' => 1,
             'founder_flag' => 1,
-            'total_fund' => 999999999
+            'total_fund' => 999999999,
+            'token' => '11111111111111111111111111111111'
         ]);
 
         DB::table('users')->insert([
@@ -33,7 +34,8 @@ class UserSeeder extends Seeder
             'name' => 'aom',
             'manager_flag' => 1,
             'founder_flag' => 0,
-            'total_fund' => 20
+            'total_fund' => 20,
+            'token' => '22222222222222222222222222222222'
         ]);
 
         DB::table('users')->insert([
@@ -45,7 +47,8 @@ class UserSeeder extends Seeder
             'name' => 'opal',
             'manager_flag' => 1,
             'founder_flag' => 0,
-            'total_fund' => 15
+            'total_fund' => 15,
+            'token' => '33333333333333333333333333333333'
         ]);
 
         DB::table('users')->insert([
@@ -57,7 +60,8 @@ class UserSeeder extends Seeder
             'name' => 'lek',
             'manager_flag' => 0,
             'founder_flag' => 1,
-            'total_fund' => 200
+            'total_fund' => 200,
+            'token' => '44444444444444444444444444444444'
         ]);
 
         DB::table('users')->insert([
@@ -69,7 +73,8 @@ class UserSeeder extends Seeder
             'name' => 'boom',
             'manager_flag' => 0,
             'founder_flag' => 1,
-            'total_fund' => 100
+            'total_fund' => 100,
+            'token' => '55555555555555555555555555555555'
         ]);
             
     }
