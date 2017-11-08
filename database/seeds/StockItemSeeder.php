@@ -18,7 +18,7 @@ class StockItemSeeder extends Seeder
             'quantity' => 40,
             'price' => 12,
             'created_at' => '2017-11-4 8:00:11',
-            'updated_at' => '2017-11-4 8:00:11',
+            'updated_at' => '2017-11-4 8:00:11'
         ]);
 
         DB::table('stock_items')->insert([
@@ -27,7 +27,7 @@ class StockItemSeeder extends Seeder
             'quantity' => 55,
             'price' => 9,
             'created_at' => '2017-11-4 8:00:11',
-            'updated_at' => '2017-11-4 8:00:11',
+            'updated_at' => '2017-11-4 8:00:11'
         ]);
 
         DB::table('stock_items')->insert([
@@ -36,7 +36,7 @@ class StockItemSeeder extends Seeder
             'quantity' => 150,
             'price' => 7,
             'created_at' => '2017-11-4 8:00:11',
-            'updated_at' => '2017-11-4 8:00:11',
+            'updated_at' => '2017-11-4 8:00:11'
         ]);
 
         DB::table('stock_items')->insert([
@@ -45,7 +45,7 @@ class StockItemSeeder extends Seeder
             'quantity' => 15,
             'price' => 17,
             'created_at' => '2017-11-4 8:00:11',
-            'updated_at' => '2017-11-4 8:00:11',
+            'updated_at' => '2017-11-4 8:00:11'
         ]);
 
         DB::table('stock_items')->insert([
@@ -54,7 +54,7 @@ class StockItemSeeder extends Seeder
             'quantity' => 10,
             'price' => 40,
             'created_at' => '2017-11-4 8:00:11',
-            'updated_at' => '2017-11-4 8:00:11',
+            'updated_at' => '2017-11-4 8:00:11'
         ]);
     }
 }
