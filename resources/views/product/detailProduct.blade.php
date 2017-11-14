@@ -9,7 +9,7 @@
             </div>
         <div class="col-sm-8 col-md-6">
                 <h2 class="mt-3"><b> price per unit - {{$product->retail_price}}</b></h2>
-                <h2 class="mt-3"><b> @if($product->balance()) on stock - {{ $product->balance() }} @else <a class="text-danger">OUT OF STOCK</a> @endif</b></h2>
+                <h3 class="mt-3"><b> @if($product->balance()) on stock - {{ $product->balance() }} @else <a class="text-danger">OUT OF STOCK</a> @endif</b></h3>
                 <h3 class="mt-3"><b> description </b></h3>
                 <p style="color:grey text-indent: 10px"> {{$product->description}} </p>
         </div>
