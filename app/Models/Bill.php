@@ -13,6 +13,6 @@ class Bill extends Model
 
     public function products()
     {
-        return $this->belongsToMany('App\Models\Product', 'bill_items')->withPivot('quantity');
+        return $this->belongsToMany('App\Models\Product', 'bill_items')->withPivot('quantity')->withTimestamps();
     }
 }

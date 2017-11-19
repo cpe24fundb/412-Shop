@@ -18,6 +18,6 @@ class Stock extends Model
 
     public function products()
     {
-        return $this->belongsToMany('App\Models\Product', 'stock_items')->withPivot('quantity');
+        return $this->belongsToMany('App\Models\Product', 'stock_items')->withPivot('quantity')->withTimestamps();
     }
 }
