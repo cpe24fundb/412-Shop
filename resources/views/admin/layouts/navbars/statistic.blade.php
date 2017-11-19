@@ -6,13 +6,13 @@
   </ul>
   <ul class="nav nav-pills flex-column">
     <li class="nav-item">
-      <a class="nav-link" href="/shop-admin/statistic/stock">Popular Product</a>
+      <a class="nav-link" href="/shop-admin/statistic/popular">Popular Products</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/shop-admin/statistic/category">Profit</a>
+      <a class="nav-link" href="/shop-admin/statistic/product">Products</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/shop-admin/manager/bill">Bill</a>
+      <a class="nav-link" href="/shop-admin/statistic/">Bill</a>
     </li>
   </ul>
 </nav>
