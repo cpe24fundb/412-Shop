@@ -15,7 +15,7 @@ class CreateDailyTable extends Migration
     {
         Schema::create('dailies', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('created_date');
+            $table->date('created_date')->unique();
         });
     }
 
