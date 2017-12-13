@@ -5,52 +5,52 @@
 @endsection
 
 @section('content')
-  <h1>Popular Products</h1>
-  <h2>Today</h2>
-  <table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Balance</th>
-    </tr>
-  </thead>
-    <tbody>
-
-    </tbody>
-  </table>
-
-  <h2>This Week</h2>
-  <table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Balance</th>
-    </tr>
-  </thead>
-    <tbody>
-
-    </tbody>
-  </table>
   <div class="container">
-  <div class="row">
-      <div class='col-sm-6'>
-          <div class="form-group">
-              <div class='input-group date' id='datetimepicker1'>
-                  <input type='text' class="form-control" />
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-              </div>
+    <div class="row justify-content-start">
+      <div class="h1">Income summary</div>
+    </div>
+    <div class"row">
+      <div class="card-deck mt-4">
+        <div class="card col-md-12" style="padding:0">
+          <div class="card-body">
+            <h4 class="card-title">Today</h4>
           </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">No. of transaction : </li>
+              <li class="list-group-item">Total income : </li>
+            </ul>
+          <div class="card-body">
+            <a href="#" class="btn btn-primary">More detail</a>
+          </div>
+        </div>
+
+        <div class="card col-md-12" style="padding:0">
+        <div class="card-body">
+          <h4 class="card-title">This month</h4>
+        </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">No. of transaction : </li>
+            <li class="list-group-item">Total income : </li>
+          </ul>
+        <div class="card-body">
+          <a href="#" class="btn btn-primary">More detail</a>
+        </div>
       </div>
-      <script type="text/javascript">
-          $(function () {
-              $('#datetimepicker1').datetimepicker();
-          });
-      </script>
+
+      <div class="card col-md-12" style="padding:0">
+        <div class="card-body">
+          <h4 class="card-title">This year</h4>
+        </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">No. of transaction : </li>
+            <li class="list-group-item">Total income : </li>
+          </ul>
+        <div class="card-body">
+          <a href="#" class="btn btn-primary">More detail</a>
+        </div>
+      </div>
+      </div>
+    </div>
   </div>
-</div>
 
 @endsection
