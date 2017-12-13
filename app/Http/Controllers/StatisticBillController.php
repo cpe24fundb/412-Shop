@@ -13,17 +13,13 @@ class StatisticBillController extends Controller
     public function view() {
         $bills = Bill::all();
         $today = Carbon::now(7);
-        // $startOfWeek = $today->startOfWeek();
-        // $endOfWeek = $today->endOfWeek();
 
+        return view('admin.statistic.bill.bill_main', ['today' => $today]);
+    }
 
+    public function billDate($date) {
+        $bills = Bill::all();
 
-
-
-        return view('admin.statistic.bill_main', ['today' => $today
-        ]);
-
-
-        // return $today;
+        return view('admin.statistic.bill.bill_date', ['date' => $date]);
     }
 }
