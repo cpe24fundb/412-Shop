@@ -24,7 +24,7 @@ class DailyProductSeeder extends Seeder
 
         DB::table('daily_products')->insert([
             'daily_id' => 1002568,
-            'product_id' => 4,
+            'product_id' => 5,
         ]);
     }
 }

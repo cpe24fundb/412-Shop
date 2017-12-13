@@ -6,5 +6,5 @@
 
   @component('components.products_grid', ['products' => $products])
   @endcomponent
-  
+
 @endsection

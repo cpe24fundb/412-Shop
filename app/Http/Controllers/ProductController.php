@@ -85,14 +85,15 @@ class ProductController extends Controller
     public function dailyProduct()
     {
         $beforeDay = Carbon::today();
-        $dailyProducts = Product::join('daily_products', 'products.id', '=', 'daily_products.product_id')
-            ->join('dailies', 'daily_products.daily_id', '=', 'dailies.id')
-            ->whereDate('created_date', $beforeDay)
-            ->get();
+        $dailyProducts = Daily::with('products')
+                ->whereDate('created_date', '=', $beforeDay)
+                ->firstOrFail();
+
+        $products = $dailyProducts->products;
 
         return view('product.dailyProduct', [
              'title' => 'Daily Product',
-             'products' => $dailyProducts,
+             'products' => $products,
         ]);
     }
 }
