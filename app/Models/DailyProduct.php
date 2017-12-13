@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class DailyProduct extends Model
 {
-    public function product()
+    public function daily()
     {
-        return $this->hasone('App\Models\Daily');
+        return $this->belongsTo('App\Models\Product');
     }
 
+    public function product()
+    {
+        return $this->hasOne('App\Models\Product');
+    }
 }

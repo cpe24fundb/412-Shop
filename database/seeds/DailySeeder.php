@@ -11,11 +11,10 @@ class DailySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('daily')->delete();
-        DB::table('daily')->insert([
+        DB::table('dailies')->delete();
+        DB::table('dailies')->insert([
             'id' => 1002568,
-            'created_at' => '2017-12-13 15:00:00',
-            'updated_at' => '2017-12-13 15:00:00'
+            'created_date' => '2017-12-13'
         ]);
     }
 }

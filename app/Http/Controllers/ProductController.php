@@ -6,7 +6,9 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\BillItem;
 use App\Models\Notification;
-
+use App\Models\DailyProduct;
+use App\Models\Daily;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
@@ -82,11 +84,15 @@ class ProductController extends Controller
 
     public function dailyProduct()
     {
-       $timess = Daily::where('created_at', '=', 'Carbon::now();')->get();
-       $complains = DB::table('complains')->where('created_at', 'like', '2015-08-20%')->get();
+        $beforeDay = Carbon::today();
+        $dailyProducts = Product::join('daily_products', 'products.id', '=', 'daily_products.product_id')
+            ->join('dailies', 'daily_products.daily_id', '=', 'dailies.id')
+            ->whereDate('created_date', $beforeDay)
+            ->get();
+
         return view('product.dailyProduct', [
              'title' => 'Daily Product',
-             'ts' => $timess,
+             'products' => $dailyProducts,
         ]);
     }
 }

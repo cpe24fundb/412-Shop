@@ -13,10 +13,9 @@ class CreateDailyProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('daily_product', function (Blueprint $table) {
+        Schema::create('daily_products', function (Blueprint $table) {
             $table->integer('daily_id');
             $table->integer('product_id');
-            $table->timestamps();
         });
     }
 
@@ -27,6 +26,6 @@ class CreateDailyProductTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('daily_product');
+        Schema::dropIfExists('daily_products');
     }
 }

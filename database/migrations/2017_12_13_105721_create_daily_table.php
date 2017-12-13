@@ -13,9 +13,9 @@ class CreateDailyTable extends Migration
      */
     public function up()
     {
-        Schema::create('daily', function (Blueprint $table) {
+        Schema::create('dailies', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->date('created_date');
         });
     }
 
@@ -26,6 +26,6 @@ class CreateDailyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('daily');
+        Schema::dropIfExists('dailies');
     }
 }

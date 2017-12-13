@@ -3,6 +3,8 @@
 @section('content') 
   
   <h1 class="mt-3">Daily Product</h1>
-  <h2>{{$ts}}</h2>
+
+  @component('components.products_grid', ['products' => $products])
+  @endcomponent
   
 @endsection
