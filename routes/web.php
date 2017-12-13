@@ -232,6 +232,44 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
                 'uses' => 'ManageNotificationController@delete'
             ]);
         });
+
+        $router->group(['prefix' => 'daily', 'as' => 'daily'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageDailyController@all'
+            ]);
+
+            $router->get('{daily_id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageDailyController@view'
+            ]);
+
+            $router->get('{daily_id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageDailyController@delete'
+            ]);
+
+            $router->post('{daily_id:[0-9]+}', [
+                'as' => 'edit',
+                'uses' => 'ManageDailyController@edit'
+            ]);
+
+            $router->post('/', [
+                'as' => 'create',
+                'uses' => 'ManageDailyController@create'
+            ]);
+
+            $router->group(['prefix' => '{daily_id:[0-9]+}/item', 'as' => 'item'], function () use ($router) {
+                $router->get('{product_id:[0-9]+}/delete', [
+                    'as' => 'delete',
+                    'uses' => 'ManageDailyController@deleteItem'
+                ]);
+    
+                $router->post('/', [
+                    'as' => 'create',
+                    'uses' => 'ManageDailyController@createItem'
+                ]);
+            });
+        });
     });
 
     $router->group(['prefix' => 'statistic', 'as' => 'statistic', 'middleware' => 'auth:founder'], function () use ($router) {
