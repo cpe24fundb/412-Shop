@@ -10,8 +10,8 @@
       <div class="h1">Income summary</div>
     </div>
     <div class"row">
-      <div class="card-deck mt-4 px-0">
-        <div class="card col-md-12" style="padding:0">
+      <div class="card-group mt-4 px-0">
+        <div class="card col-md-3 col-sm-6" style="padding:0">
           <div class="card-body">
             <h4 class="card-title">Today<br></h4>
             <h6 class="text-right">( {{ $today->toDateString() }} )</h6>
@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <div class="card col-md-12" style="padding:0">
+        <div class="card col-md-3 col-sm-6" style="padding:0">
           <div class="card-body">
             <h4 class="card-title">This week<br></h4>
             <h6 class="text-right">( {{ $today->startOfWeek()->toDateString() }}~{{ $today->endOfWeek()->toDateString() }} )</h6>
@@ -41,7 +41,7 @@
           </div>
         </div>
 
-        <div class="card col-md-12" style="padding:0">
+        <div class="card col-md-3 col-sm-6" style="padding:0">
         <div class="card-body">
           <h4 class="card-title">This month<br></h4>
           <h6 class="text-right">( {{ $today->format('F') }} )</h6>
@@ -56,7 +56,7 @@
         </div>
       </div>
 
-      <div class="card col-md-12" style="padding:0">
+      <div class="card col-md-3 col-sm-6" style="padding:0">
         <div class="card-body">
           <h4 class="card-title">This year<br></h4>
           <h6 class="text-right">( {{ $today->year }} )</h6>
