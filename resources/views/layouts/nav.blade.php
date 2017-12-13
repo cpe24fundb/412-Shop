@@ -14,9 +14,6 @@
         <li class="nav-item">
           <a class="nav-link" href="/category">Category</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/dailyproduct">Daily Product</a>
-        </li>
         <!-- <li class="nav-item" >
           <a class="nav-link" href="/following" disabled="true">Following</a>
         </li> -->
