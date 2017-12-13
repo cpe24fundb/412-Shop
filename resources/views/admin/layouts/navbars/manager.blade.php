@@ -17,6 +17,9 @@
     <li class="nav-item">
       <a class="nav-link" href="/shop-admin/manager/bill">Bill</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/shop-admin/manager/daily">Daily</a>
+    </li>
   </ul>
 
   <ul class="nav nav-pills flex-column">

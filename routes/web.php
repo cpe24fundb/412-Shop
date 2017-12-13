@@ -22,12 +22,21 @@ $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory
 $router->get('/feedback', 'FeedbackController@view');
 $router->post('/feedback', 'FeedbackController@create');
 
+$router->get('/login', [
+    'as' => 'login',
+    'use' => function () {
+    return view('admin.login');
+}]);
+
+$router->post('/login', 'AuthenticationController@login');
+$router->get('/logout', 'AuthenticationController@logout');
+
 $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($router) {
     $router->get('/', function () {
         return redirect()->route('admin.manager.dashboard');
     });
 
-    $router->group(['prefix' => 'manager', 'as' => 'manager'], function () use ($router) {
+    $router->group(['prefix' => 'manager', 'as' => 'manager', 'middleware' => 'auth:manager'], function () use ($router) {
         $router->get('/', [
             'as' => 'dashboard',
             'uses' => 'ManageDashboardController@view'
@@ -223,9 +232,47 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
                 'uses' => 'ManageNotificationController@delete'
             ]);
         });
+
+        $router->group(['prefix' => 'daily', 'as' => 'daily'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageDailyController@all'
+            ]);
+
+            $router->get('{daily_id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageDailyController@view'
+            ]);
+
+            $router->get('{daily_id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageDailyController@delete'
+            ]);
+
+            $router->post('{daily_id:[0-9]+}', [
+                'as' => 'edit',
+                'uses' => 'ManageDailyController@edit'
+            ]);
+
+            $router->post('/', [
+                'as' => 'create',
+                'uses' => 'ManageDailyController@create'
+            ]);
+
+            $router->group(['prefix' => '{daily_id:[0-9]+}/item', 'as' => 'item'], function () use ($router) {
+                $router->get('{product_id:[0-9]+}/delete', [
+                    'as' => 'delete',
+                    'uses' => 'ManageDailyController@deleteItem'
+                ]);
+    
+                $router->post('/', [
+                    'as' => 'create',
+                    'uses' => 'ManageDailyController@createItem'
+                ]);
+            });
+        });
     });
 
-    $router->group(['prefix' => 'statistic', 'as' => 'statistic'], function () use ($router) {
+    $router->group(['prefix' => 'statistic', 'as' => 'statistic', 'middleware' => 'auth:founder'], function () use ($router) {
         $router->get('/', [
             'as' => 'popular',
             'uses' => 'StatisticController@popular'
