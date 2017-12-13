@@ -28,14 +28,14 @@
         <div class="card col-md-12" style="padding:0">
           <div class="card-body">
             <h4 class="card-title">This week<br></h4>
-            <h6 class="text-right">( {{$today->startOfWeek()->toDateString()}} / {{$today->endOfWeek()->toDateString()}} )</h6>
+            <h6 class="text-right">( {{$today->startOfWeek()->toDateString()}}/{{$today->endOfWeek()->toDateString()}} )</h6>
           </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">No. of transaction : </li>
               <li class="list-group-item">Total income : </li>
             </ul>
           <div class="card-body">
-            <a href="#" class="btn btn-primary">More detail</a>
+            <a href="./bill/{{$today->startOfWeek()->toDateString()}}/{{$today->endOfWeek()->toDateString()}}" class="btn btn-primary">More detail</a>
           </div>
         </div>
 

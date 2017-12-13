@@ -239,6 +239,10 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
             $router->get('/{date:[0-9]{4}-[0-9]{2}-[0-9]{2}}', [
                 'uses' => 'StatisticBillController@billDate'
             ]);
+
+            $router->get('/{dateF:[0-9]{4}-[0-9]{2}-[0-9]{2}}/{dateT:[0-9]{4}-[0-9]{2}-[0-9]{2}}', [
+                'uses' => 'StatisticBillController@billRange'
+            ]);
         });
     });
 });
