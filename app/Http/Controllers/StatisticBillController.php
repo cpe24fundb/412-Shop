@@ -50,10 +50,12 @@ class StatisticBillController extends Controller
     public function billDate($date) {
         $odate = Carbon::createFromFormat('Y-m-d', $date)->addHour(7);
         $bills = $this->billCalculate($odate, $odate);
+        $count = $bills->sum('quantity');
         $sum = $bills->sum('line_total');
 
         return view('admin.statistic.bill.bill_view', ['date' => $date
                                                         ,'bills' => $bills
+                                                        ,'count' => $count
                                                         ,'sum' => $sum]);
 
     }
@@ -62,10 +64,12 @@ class StatisticBillController extends Controller
         $fdate = Carbon::createFromFormat('Y-m-d', $dateF)->addHour(7);
         $tdate = Carbon::createFromFormat('Y-m-d', $dateT)->addHour(7);
         $bills = $this->billCalculate($fdate, $tdate);
+        $count = $bills->sum('quantity');
         $sum = $bills->sum('line_total');
 
         return view('admin.statistic.bill.bill_view', ['date' => $dateF . " ~ " . $dateT
                                                         ,'bills' => $bills
+                                                        ,'count' => $count
                                                         ,'sum' => $sum]);
 
     }
@@ -74,10 +78,12 @@ class StatisticBillController extends Controller
         $mdate = Carbon::createFromFormat('Y-m', $month)->addHour(7);
         $ndate = Carbon::createFromFormat('Y-m', $month)->addHour(7);
         $bills = $this->billCalculate($mdate->startOfMonth(), $ndate->endOfMonth());
+        $count = $bills->sum('quantity');
         $sum = $bills->sum('line_total');
 
         return view('admin.statistic.bill.bill_view', ['date' => $mdate->format('F')
                                                         ,'bills' => $bills
+                                                        ,'count' => $count
                                                         ,'sum' => $sum]);
 
     }
@@ -86,11 +92,13 @@ class StatisticBillController extends Controller
         $xdate = Carbon::create($year,1,1,0)->addHour(7);
         $ydate = Carbon::create($year,1,1,0)->addHour(7);
         $bills = $this->billCalculate($xdate->startOfYear(), $ydate->endOfYear());
+        $count = $bills->sum('quantity');
         $sum = $bills->sum('line_total');
 
         return view('admin.statistic.bill.bill_view', ['date' => $year
                                                         ,'bills' => $bills
+                                                        ,'count' => $count
                                                         ,'sum' => $sum]);
-        // return [$ydate, $ydate->startOfYear(), $ydate->endOfYear()];
+
     }
 }
