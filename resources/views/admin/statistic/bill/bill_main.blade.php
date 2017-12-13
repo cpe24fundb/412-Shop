@@ -21,7 +21,7 @@
               <li class="list-group-item">Total income : </li>
             </ul>
           <div class="card-body">
-            <a href="#" class="btn btn-primary">More detail</a>
+            <a href="./bill/{{$today->toDateString()}}" class="btn btn-primary">More detail</a>
           </div>
         </div>
 
