@@ -311,9 +311,26 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
                 'uses' => 'StatisticDailyController@dailyRedirect'            
             ]);
             
-            $router->get('{created_at:[0-9]+-+[0-9]+-+[0-9]+}', [
+            $router->get('{created_at:[0-9]+-[0-9]+-[0-9]+}', [
                 'as' => 'view',
                 'uses' => 'StatisticDailyController@view'
+            ]);
+        });
+
+        $router->group(['prefix' => 'product', 'as' => 'product'], function () use ($router) {
+            $router->get('/',[
+                'as' => 'product',
+                'uses' => 'StatisticProductController@all'            
+            ]);
+
+            $router->post('/',[
+                'as' => 'productRedirect',
+                'uses' => 'StatisticProductController@productRedirect'            
+            ]);
+            
+            $router->get('{product_id:[0-9]+}/{date_start}/{date_end}', [
+                'as' => 'view',
+                'uses' => 'StatisticProductController@view'
             ]);
         });
     });
