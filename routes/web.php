@@ -247,6 +247,10 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
             $router->get('/{month:[0-9]{4}-[0-9]{2}}', [
                 'uses' => 'StatisticBillController@billMonth'
             ]);
+
+            $router->get('/{year:[0-9]{4}}', [
+                'uses' => 'StatisticBillController@billYear'
+            ]);
         });
     });
 });

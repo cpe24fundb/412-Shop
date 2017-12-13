@@ -53,4 +53,16 @@ class StatisticBillController extends Controller
                                                         ,'sum' => $sum]);
 
     }
+
+    public function billYear($year) {
+        $ydate = Carbon::createFromFormat('Y', $year)->addHour(7);
+        $bills = Bill::all()->where('created_at', '>=', $ydate->startOfYear())
+                            ->where('created_at', '<=', $ydate->endOfYear());
+        $sum = $bills->sum('line_total');
+
+        return view('admin.statistic.bill.bill_view', ['date' => $year
+                                                        ,'bills' => $bills
+                                                        ,'sum' => $sum]);
+
+    }
 }
