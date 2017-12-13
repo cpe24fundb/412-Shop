@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDailyProductTable extends Migration
+class CreateDailyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateDailyProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('daily_product', function (Blueprint $table) {
-            $table->integer('daily_id');
-            $table->integer('product_id');
+        Schema::create('daily', function (Blueprint $table) {
+            $table->increments('id');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ class CreateDailyProductTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('daily_product');
+        Schema::dropIfExists('daily');
     }
 }
