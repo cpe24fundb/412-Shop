@@ -14,5 +14,8 @@
     <li class="nav-item">
       <a class="nav-link" href="/shop-admin/statistic/">Bill</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/shop-admin/statistic/daily">Sale report by date</a>
+    </li>
   </ul>
 </nav>

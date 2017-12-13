@@ -230,5 +230,22 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
             'as' => 'popular',
             'uses' => 'StatisticController@popular'
         ]);
+        
+        $router->group(['prefix' => 'daily', 'as' => 'daily'], function () use ($router) {
+            $router->get('/',[
+                'as' => 'daily',
+                'uses' => 'StatisticDailyController@daily'            
+            ]);
+
+            $router->post('/',[
+                'as' => 'dailyRedirect',
+                'uses' => 'StatisticDailyController@dailyRedirect'            
+            ]);
+            
+            $router->get('{created_at:[0-9]+-+[0-9]+-+[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'StatisticDailyController@view'
+            ]);
+        });
     });
 });
