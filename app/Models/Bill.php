@@ -15,4 +15,9 @@ class Bill extends Model
     {
         return $this->belongsToMany('App\Models\Product', 'bill_items')->withPivot('quantity')->withTimestamps();
     }
+
+    public function quantity()
+    {
+        return $this->products->sum('pivot.quantity');
+    }
 }
