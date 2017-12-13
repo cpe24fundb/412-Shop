@@ -12,7 +12,7 @@
       <a class="nav-link" href="/shop-admin/statistic/product">Products</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/shop-admin/statistic/">Bill</a>
+      <a class="nav-link" href="/shop-admin/statistic/bill">Income summary</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="/shop-admin/statistic/daily">Sale report by date</a>

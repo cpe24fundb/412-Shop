@@ -230,6 +230,28 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
             'as' => 'popular',
             'uses' => 'StatisticController@popular'
         ]);
+
+        $router->group(['prefix' => 'bill', 'as' => 'bill'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'StatisticBillController@view'
+            ]);
+
+            $router->get('/{date:[0-9]{4}-[0-9]{2}-[0-9]{2}}', [
+                'uses' => 'StatisticBillController@billDate'
+            ]);
+
+            $router->get('/{dateF:[0-9]{4}-[0-9]{2}-[0-9]{2}}/{dateT:[0-9]{4}-[0-9]{2}-[0-9]{2}}', [
+                'uses' => 'StatisticBillController@billRange'
+            ]);
+
+            $router->get('/{month:[0-9]{4}-[0-9]{2}}', [
+                'uses' => 'StatisticBillController@billMonth'
+            ]);
+
+            $router->get('/{year:[0-9]{4}}', [
+                'uses' => 'StatisticBillController@billYear'
+            ]);
+        });
         
         $router->group(['prefix' => 'daily', 'as' => 'daily'], function () use ($router) {
             $router->get('/',[
