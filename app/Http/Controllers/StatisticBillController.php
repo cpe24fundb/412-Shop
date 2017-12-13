@@ -18,8 +18,14 @@ class StatisticBillController extends Controller
     }
 
     public function billDate($date) {
-        $bills = Bill::all();
+        $odate = Carbon::createFromFormat('Y-m-d', $date)->addHour(7);
+        $bills = Bill::all()->where('created_at', '>=', $odate->startOfDay())
+                            ->where('created_at', '<=', $odate->endOfDay());
+        $sum = $bills->sum('line_total');
 
-        return view('admin.statistic.bill.bill_date', ['date' => $date]);
+        return view('admin.statistic.bill.bill_date', ['date' => $date
+                                                        ,'bills' => $bills
+                                                        ,'sum' => $sum]);
+
     }
 }
