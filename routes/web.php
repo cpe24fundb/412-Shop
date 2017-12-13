@@ -284,6 +284,7 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
             ]);
 
             $router->get('/{date:[0-9]{4}-[0-9]{2}-[0-9]{2}}', [
+                'as' => 'dated',
                 'uses' => 'StatisticBillController@billDate'
             ]);
 
@@ -297,6 +298,11 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
 
             $router->get('/{year:[0-9]{4}}', [
                 'uses' => 'StatisticBillController@billYear'
+            ]);
+
+            $router->post('/',[
+                'as' => 'dateRedirect',
+                'uses' => 'StatisticBillController@dateRedirect'
             ]);
         });
         

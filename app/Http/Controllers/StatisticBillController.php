@@ -101,4 +101,12 @@ class StatisticBillController extends Controller
                                                         ,'sum' => $sum]);
 
     }
+
+    public function dateRedirect(Request $request){
+        $date = $request->input('datetimepickerSD');
+        $date = "2017-12-12";
+
+        return redirect()->route('admin.statistic.bill.dated', ['date' => $date]);
+    }
+
 }
