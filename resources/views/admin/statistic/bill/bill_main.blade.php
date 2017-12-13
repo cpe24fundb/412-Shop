@@ -93,22 +93,28 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
+
       <div class="tab-pane active" id="spD" role="tabpanel">
         <div class="container mt-3">
-            <div class="col-sm-6">
-              <div class="form-group">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
               <div>Select date</div>
                   <div class='input-group date' id='datetimepickerSD'>
-                      <input type='text' class="form-control" />
+                      <input type='text' class="form-control" id="dateDS"/>
                       <span class="input-group-addon">
                           <span class="fa fa-calendar">
                           </span>
                       </span>
+                      <button type="button" onclick="SDgo()" class="btn btn-default ml-2">Search</button>
                   </div>
+                 
               </div>
             </div>
         </div>
+        </div>
       </div>
+
       <div class="tab-pane" id="rD" role="tabpanel">
         <div class="container mt-3">
         <div class="row">
@@ -116,7 +122,7 @@
             <div class="form-group">
               <div>From</div>
               <div class='input-group date' id='datetimepickerRD1'>
-                <input type='text' class="form-control" />
+                <input type='text' class="form-control" id="dateDRA"/>
                 <span class="input-group-addon">
                   <span class="fa fa-calendar">
                    </span>
@@ -128,49 +134,55 @@
             <div class="form-group">
               <div>To</div>
               <div class='input-group date' id='datetimepickerRD2'>
-                <input type='text' class="form-control" />
+                <input type='text' class="form-control" id="dateDRB"/>
                   <span class="input-group-addon">
                       <span class="fa fa-calendar">
                       </span>
                   </span>
+                  <button type="button" onclick="RDgo()" class="btn btn-default ml-2">Search</button>
               </div>
             </div>
           </div>
         </div>
         </div>
       </div>
+
       <div class="tab-pane" id="Mn" role="tabpanel">
         <div class="container mt-3">
             <div class="col-sm-6">
               <div class="form-group">
               <div>Select month</div>
                   <div class='input-group date' id='datetimepickerMN'>
-                      <input type='text' class="form-control" />
+                      <input type='text' class="form-control" id="dateDM"/>
                       <span class="input-group-addon">
                           <span class="fa fa-calendar">
                           </span>
                       </span>
+                      <button type="button" onclick="MDgo()" class="btn btn-default ml-2">Search</button>
                   </div>
               </div>
             </div>
         </div>
       </div>
+
       <div class="tab-pane" id="Yr" role="tabpanel">
         <div class="container mt-3">
             <div class="col-sm-6">
               <div class="form-group">
               <div>Select year</div>
                   <div class='input-group date' id='datetimepickerYR'>
-                      <input type='text' class="form-control" />
+                      <input type='text' class="form-control" id="dateDY"/>
                       <span class="input-group-addon">
                           <span class="fa fa-calendar">
                           </span>
                       </span>
+                      <button type="button" onclick="YDgo()" class="btn btn-default ml-2">Search</button>
                   </div>
               </div>
             </div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -232,6 +244,19 @@
       });
 
     });
+
+    function SDgo(){
+      window.location.href = 'bill/' + $('#dateDS').val();
+    };
+    function RDgo(){
+      window.location.href = 'bill/' + $('#dateDRA').val() + '/' + $('#dateDRB').val();
+    };
+    function MDgo(){
+      window.location.href = 'bill/' + $('#dateDM').val();
+    };
+    function YDgo(){
+      window.location.href = 'bill/' + $('#dateDY').val();
+    };
   </script>
 
     
