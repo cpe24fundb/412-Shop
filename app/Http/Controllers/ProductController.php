@@ -44,21 +44,30 @@ class ProductController extends Controller
         ]);
     }
 
-    public function viewPopularProduct()
+    public function viewHomeProduct()
     {   
         $BillItems = BillItem::with('product')->orderBy('sum', 'desc')
                         ->groupBy('product_id')
                         ->selectRaw('product_id, sum(quantity) as sum')->limit(9)
                         ->get();
 
-        $products = $BillItems->map(function($billItem) {
+        $productsPopular = $BillItems->map(function($billItem) {
             return $billItem->product;
         });
 
-         return view('product.popular', [
-            'title' => 'Popular Product',
-            'products' => $products
+        $beforeDay = Carbon::today();
+        $dailyProducts = Daily::with('products')
+                ->whereDate('created_date', '=', $beforeDay)
+                ->firstOrFail();
+
+        $productsDaily = $dailyProducts->products;
+
+        return view('product.home', [
+            'title' => 'Home - 412shop',
+            'productsPop' => $productsPopular,
+            'productsDaily' => $productsDaily
         ]);
+
     }
 
     public function viewFollow($id)
@@ -84,16 +93,6 @@ class ProductController extends Controller
 
     public function dailyProduct()
     {
-        $beforeDay = Carbon::today();
-        $dailyProducts = Daily::with('products')
-                ->whereDate('created_date', '=', $beforeDay)
-                ->firstOrFail();
 
-        $products = $dailyProducts->products;
-
-        return view('product.dailyProduct', [
-             'title' => 'Daily Product',
-             'products' => $products,
-        ]);
     }
 }

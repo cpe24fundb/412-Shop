@@ -11,7 +11,7 @@
 |
 */
 
-$router->get('/', 'ProductController@viewPopularProduct');
+$router->get('/', 'ProductController@viewHomeProduct');
 
 $router->get('/product', 'ProductController@viewAllProducts');
 $router->get('/product/{productId}', 'ProductController@viewDetailProducts');
@@ -21,8 +21,6 @@ $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory
 
 $router->get('/feedback', 'FeedbackController@view');
 $router->post('/feedback', 'FeedbackController@create');
-
-$router->get('/dailyproduct', 'ProductController@dailyProduct');
 
 $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($router) {
     $router->get('/', function () {
