@@ -13,14 +13,24 @@ class StatisticBillController extends Controller
     public function view() {
         $bills = Bill::all();
         $today = Carbon::now(7);
+        
+        $tbills = $this->billCalculate($today, $today);
+        $wbills = $this->billCalculate($today->startOfWeek(), $today->endOfWeek());
+        $mbills = $this->billCalculate($today->startOfMonth(), $today->endOfMonth());
+        $ybills = $this->billCalculate($today->startOfYear(), $today->endOfYear());
 
         return view('admin.statistic.bill.bill_main', ['today' => $today]);
     }
 
+    private function billCalculate($dateF, $dateT){
+        $bills = $bills = Bill::all()->where('created_at', '>=', $dateF->startOfDay())
+                                     ->where('created_at', '<=', $dateT->endOfDay());
+        return $bills;
+    }
+
     public function billDate($date) {
         $odate = Carbon::createFromFormat('Y-m-d', $date)->addHour(7);
-        $bills = Bill::all()->where('created_at', '>=', $odate->startOfDay())
-                            ->where('created_at', '<=', $odate->endOfDay());
+        $bills = $this->billCalculate($odate, $odate);
         $sum = $bills->sum('line_total');
 
         return view('admin.statistic.bill.bill_view', ['date' => $date
@@ -32,8 +42,7 @@ class StatisticBillController extends Controller
     public function billRange($dateF, $dateT) {
         $fdate = Carbon::createFromFormat('Y-m-d', $dateF)->addHour(7);
         $tdate = Carbon::createFromFormat('Y-m-d', $dateT)->addHour(7);
-        $bills = Bill::all()->where('created_at', '>=', $fdate->startOfDay())
-                            ->where('created_at', '<=', $tdate->endOfDay());
+        $bills = $this->billCalculate($fdate, $tdate);
         $sum = $bills->sum('line_total');
 
         return view('admin.statistic.bill.bill_view', ['date' => $dateF . " ~ " . $dateT
@@ -44,8 +53,7 @@ class StatisticBillController extends Controller
 
     public function billMonth($month) {
         $mdate = Carbon::createFromFormat('Y-m', $month)->addHour(7);
-        $bills = Bill::all()->where('created_at', '>=', $mdate->startOfMonth())
-                            ->where('created_at', '<=', $mdate->endOfMonth());
+        $bills = $this->billCalculate($mdate->startOfMonth(), $mdate->endOfMonth());
         $sum = $bills->sum('line_total');
 
         return view('admin.statistic.bill.bill_view', ['date' => $mdate->format('F')
@@ -56,8 +64,7 @@ class StatisticBillController extends Controller
 
     public function billYear($year) {
         $ydate = Carbon::createFromFormat('Y', $year)->addHour(7);
-        $bills = Bill::all()->where('created_at', '>=', $ydate->startOfYear())
-                            ->where('created_at', '<=', $ydate->endOfYear());
+        $bills = $this->billCalculate($ydate->startOfYear(), $ydate->endOfYear());
         $sum = $bills->sum('line_total');
 
         return view('admin.statistic.bill.bill_view', ['date' => $year
