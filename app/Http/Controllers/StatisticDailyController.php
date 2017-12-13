@@ -17,7 +17,7 @@ public function daily(){
 
         $todayDaily = BillItem::with('product')
         ->orderBy('quantity', 'desc')
-        ->whereDate('created_at', '>=', Carbon::now()->toDateString())
+        ->whereDate('created_at', '=', Carbon::now()->toDateString())
         ->groupBy('product_id')
         ->selectRaw('product_id, sum(quantity) as quantity')
         ->get();
@@ -38,7 +38,7 @@ public function daily(){
 
         $todayDaily = BillItem::with('product')
         ->orderBy('quantity', 'desc')
-        ->whereDate('created_at', '>=', $time)
+        ->whereDate('created_at', '=', $time)
         ->groupBy('product_id')
         ->selectRaw('product_id, sum(quantity) as quantity')
         ->get();
