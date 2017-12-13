@@ -24,10 +24,18 @@ class StatisticBillController extends Controller
         $mcount = $mbills->count();
         $ycount = $ybills->count();
 
-        $tsold = $tbills->sum('quantity');
-        $wsold = $wbills->sum('quantity');
-        $msold = $mbills->sum('quantity');
-        $ysold = $ybills->sum('quantity');
+        $tsold = $tbills->sum(function ($bill) {
+            return $bill->quantity();
+        });
+        $wsold = $wbills->sum(function ($bill) {
+            return $bill->quantity();
+        });
+        $msold = $mbills->sum(function ($bill) {
+            return $bill->quantity();
+        });
+        $ysold = $ybills->sum(function ($bill) {
+            return $bill->quantity();
+        });
 
         $ttotal = $tbills->sum('line_total');
         $wtotal = $wbills->sum('line_total');
@@ -42,8 +50,8 @@ class StatisticBillController extends Controller
     }
 
     private function billCalculate($dateF, $dateT){
-        $bills = $bills = Bill::all()->where('created_at', '>=', $dateF->startOfDay())
-                                     ->where('created_at', '<=', $dateT->endOfDay());
+        $bills = Bill::with('products')->where('created_at', '>=', $dateF->startOfDay())
+                                     ->where('created_at', '<=', $dateT->endOfDay())->get();
         return $bills;
     }
 
