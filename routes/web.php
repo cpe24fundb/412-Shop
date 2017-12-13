@@ -11,7 +11,7 @@
 |
 */
 
-$router->get('/', 'ProductController@viewPopularProduct');
+$router->get('/', 'ProductController@viewHomeProduct');
 
 $router->get('/product', 'ProductController@viewAllProducts');
 $router->get('/product/{productId}', 'ProductController@viewDetailProducts');
