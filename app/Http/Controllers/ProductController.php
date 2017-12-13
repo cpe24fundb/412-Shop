@@ -80,13 +80,13 @@ class ProductController extends Controller
         ]);
     }
 
-    public function dailyProducts()
+    public function dailyProduct()
     {
-        $products = Product::findOrFail();
-
+       $timess = Daily::where('created_at', '=', 'Carbon::now();')->get();
+       $complains = DB::table('complains')->where('created_at', 'like', '2015-08-20%')->get();
         return view('product.dailyProduct', [
              'title' => 'Daily Product',
-             'product' => $products,
+             'ts' => $timess,
         ]);
     }
 }
