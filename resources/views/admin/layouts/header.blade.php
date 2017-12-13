@@ -14,7 +14,7 @@
             <a class="nav-link " href="/shop-admin/statistic">Statistic</a>
         </li>
       </ul>
-      <a class="btn btn-danger" href="/shop-admin/logout">Logout</a>
+      <a class="btn btn-danger" href="/logout">Logout</a>
     </div>
   </nav>
 </header>

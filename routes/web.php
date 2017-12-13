@@ -22,12 +22,21 @@ $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory
 $router->get('/feedback', 'FeedbackController@view');
 $router->post('/feedback', 'FeedbackController@create');
 
+$router->get('/login', [
+    'as' => 'login',
+    'use' => function () {
+    return view('admin.login');
+}]);
+
+$router->post('/login', 'AuthenticationController@login');
+$router->get('/logout', 'AuthenticationController@logout');
+
 $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($router) {
     $router->get('/', function () {
         return redirect()->route('admin.manager.dashboard');
     });
 
-    $router->group(['prefix' => 'manager', 'as' => 'manager'], function () use ($router) {
+    $router->group(['prefix' => 'manager', 'as' => 'manager', 'middleware' => 'auth:manager'], function () use ($router) {
         $router->get('/', [
             'as' => 'dashboard',
             'uses' => 'ManageDashboardController@view'
@@ -225,7 +234,7 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
         });
     });
 
-    $router->group(['prefix' => 'statistic', 'as' => 'statistic'], function () use ($router) {
+    $router->group(['prefix' => 'statistic', 'as' => 'statistic', 'middleware' => 'auth:founder'], function () use ($router) {
         $router->get('/', [
             'as' => 'popular',
             'uses' => 'StatisticController@popular'
