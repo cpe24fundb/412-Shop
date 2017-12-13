@@ -13,7 +13,8 @@
       <div class="card-deck mt-4">
         <div class="card col-md-12" style="padding:0">
           <div class="card-body">
-            <h4 class="card-title">Today</h4>
+            <h4 class="card-title">Today<br></h4>
+            <h6 class="text-right">( {{$today->toDateString()}} )</h6>
           </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">No. of transaction : </li>
@@ -26,7 +27,8 @@
 
         <div class="card col-md-12" style="padding:0">
           <div class="card-body">
-            <h4 class="card-title">This week</h4>
+            <h4 class="card-title">This week<br></h4>
+            <h6 class="text-right">( {{$today->startOfWeek()->toDateString()}} / {{$today->endOfWeek()->toDateString()}} )</h6>
           </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">No. of transaction : </li>
@@ -39,7 +41,8 @@
 
         <div class="card col-md-12" style="padding:0">
         <div class="card-body">
-          <h4 class="card-title">This month</h4>
+          <h4 class="card-title">This month<br></h4>
+          <h6 class="text-right">( {{$today->format('F')}} )</h6>
         </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">No. of transaction : </li>
@@ -52,7 +55,8 @@
 
       <div class="card col-md-12" style="padding:0">
         <div class="card-body">
-          <h4 class="card-title">This year</h4>
+          <h4 class="card-title">This year<br></h4>
+          <h6 class="text-right">( {{$today->year}} )</h6>
         </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">No. of transaction : </li>
