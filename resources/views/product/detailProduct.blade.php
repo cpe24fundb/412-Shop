@@ -11,6 +11,7 @@
         <h2 class="mt-3"><b> price per unit - {{number_format($product->retail_price, 2, '.', ',')}}</b></h2>
                 <h3 class="mt-3"><b> @if($product->balance()) on stock - {{ $product->balance() }} @else <a class="text-danger">OUT OF STOCK</a> @endif</b></h3>
                 <h3 class="mt-3"><b> description </b></h3>
+                <h5> {{$product->description}}</h5>
         </div>
     </div>
 
