@@ -25,6 +25,19 @@
         </div>
 
         <div class="card col-md-12" style="padding:0">
+          <div class="card-body">
+            <h4 class="card-title">This week</h4>
+          </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">No. of transaction : </li>
+              <li class="list-group-item">Total income : </li>
+            </ul>
+          <div class="card-body">
+            <a href="#" class="btn btn-primary">More detail</a>
+          </div>
+        </div>
+
+        <div class="card col-md-12" style="padding:0">
         <div class="card-body">
           <h4 class="card-title">This month</h4>
         </div>
