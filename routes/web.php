@@ -230,5 +230,11 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
             'as' => 'popular',
             'uses' => 'StatisticController@popular'
         ]);
+
+        $router->group(['prefix' => 'bill', 'as' => 'bill'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'StatisticBillController@view'
+            ]);
+        });
     });
 });
