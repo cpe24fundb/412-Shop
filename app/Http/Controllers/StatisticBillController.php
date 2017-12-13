@@ -41,4 +41,16 @@ class StatisticBillController extends Controller
                                                         ,'sum' => $sum]);
 
     }
+
+    public function billMonth($month) {
+        $mdate = Carbon::createFromFormat('Y-m', $month)->addHour(7);
+        $bills = Bill::all()->where('created_at', '>=', $mdate->startOfMonth())
+                            ->where('created_at', '<=', $mdate->endOfMonth());
+        $sum = $bills->sum('line_total');
+
+        return view('admin.statistic.bill.bill_view', ['date' => $mdate->format('F')
+                                                        ,'bills' => $bills
+                                                        ,'sum' => $sum]);
+
+    }
 }

@@ -243,6 +243,10 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
             $router->get('/{dateF:[0-9]{4}-[0-9]{2}-[0-9]{2}}/{dateT:[0-9]{4}-[0-9]{2}-[0-9]{2}}', [
                 'uses' => 'StatisticBillController@billRange'
             ]);
+
+            $router->get('/{month:[0-9]{4}-[0-9]{2}}', [
+                'uses' => 'StatisticBillController@billMonth'
+            ]);
         });
     });
 });
