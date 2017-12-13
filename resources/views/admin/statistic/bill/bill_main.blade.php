@@ -78,25 +78,99 @@
   <div class="container pt-3">
     <ul class="nav nav-tabs" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Home</a>
+        <a class="nav-link active" data-toggle="tab" href="#spD" role="tab">Specific Date</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a>
+        <a class="nav-link" data-toggle="tab" href="#rD" role="tab">Range Date</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Messages</a>
+        <a class="nav-link" data-toggle="tab" href="#Mn" role="tab">Month</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a>
+        <a class="nav-link" data-toggle="tab" href="#Yr" role="tab">Year </a>
       </li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div class="tab-pane active" id="home" role="tabpanel">...</div>
-      <div class="tab-pane" id="profile" role="tabpanel">..ss.</div>
-      <div class="tab-pane" id="messages" role="tabpanel">...</div>
-      <div class="tab-pane" id="settings" role="tabpanel">...</div>
+      <div class="tab-pane active" id="spD" role="tabpanel">
+        <div class="container mt-3">
+            <div class="col-sm-6">
+              <div class="form-group">
+              <div>Select date</div>
+                  <div class='input-group date' id='datetimepickerSD'>
+                      <input type='text' class="form-control" />
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar">
+                          </span>
+                      </span>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="rD" role="tabpanel">
+        <div class="container mt-3">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+              <div>From</div>
+              <div class='input-group date' id='datetimepickerRD1'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                  <span class="fa fa-calendar">
+                   </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="form-group">
+              <div>To</div>
+              <div class='input-group date' id='datetimepickerRD2'>
+                <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                      <span class="fa fa-calendar">
+                      </span>
+                  </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="Mn" role="tabpanel">
+        <div class="container mt-3">
+            <div class="col-sm-6">
+              <div class="form-group">
+              <div>Select month</div>
+                  <div class='input-group date' id='datetimepickerMN'>
+                      <input type='text' class="form-control" />
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar">
+                          </span>
+                      </span>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="Yr" role="tabpanel">
+        <div class="container mt-3">
+            <div class="col-sm-6">
+              <div class="form-group">
+              <div>Select year</div>
+                  <div class='input-group date' id='datetimepickerYR'>
+                      <input type='text' class="form-control" />
+                      <span class="input-group-addon">
+                          <span class="fa fa-calendar">
+                          </span>
+                      </span>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -106,12 +180,58 @@
   <script type="text/javascript" src="/js/moment.js"></script>
   <script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js"></script>
   <script type="text/javascript">
-      $(function () {
-          $('#datetimepicker10').datetimepicker({
-              viewMode: 'years',
-              format: 'YYYY'
-          });
+    $(function () {
+      $('#datetimepickerSD').datetimepicker({
+          icons: {
+              time: "fa fa-clock-o",
+              date: "fa fa-calendar",
+              up: "fa fa-arrow-up",
+              down: "fa fa-arrow-down"
+          },
+          format: 'YYYY-MM-DD'
       });
+
+      $('#datetimepickerRD1').datetimepicker({
+          icons: {
+              time: "fa fa-clock-o",
+              date: "fa fa-calendar",
+              up: "fa fa-arrow-up",
+              down: "fa fa-arrow-down"
+          },
+          format: 'YYYY-MM-DD'
+      });
+      $('#datetimepickerRD2').datetimepicker({
+            useCurrent: false, //Important! See issue #1075
+            format: 'YYYY-MM-DD'
+        });
+        $("#datetimepickerRD1").on("dp.change", function (e) {
+            $('#datetimepickerRD2').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepickerRD2").on("dp.change", function (e) {
+            $('#datetimepickerRD2').data("DateTimePicker").maxDate(e.date);
+        });
+
+      $('#datetimepickerMN').datetimepicker({
+        icons: {
+            time: "fa fa-clock-o",
+            date: "fa fa-calendar",
+            up: "fa fa-arrow-up",
+            down: "fa fa-arrow-down"
+        },
+        format: 'YYYY-MM'
+      });
+
+      $('#datetimepickerYR').datetimepicker({
+          icons: {
+              time: "fa fa-clock-o",
+              date: "fa fa-calendar",
+              up: "fa fa-arrow-up",
+              down: "fa fa-arrow-down"
+          },
+          format: 'YYYY'
+      });
+
+    });
   </script>
 
     
