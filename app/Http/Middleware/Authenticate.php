@@ -22,7 +22,7 @@ class Authenticate
         $user = User::where('token', $token)->first();
         if (!$user || 
             ($role == 'manager' && !$user->manager_flag) ||
-            ($role == 'founder' && !$user->founder_flag)
+            ($role == 'founder' && (!$user->founder_flag || !$user->manager_flag))
         ) {
             return response('Unauthorized.', 401);
         }
