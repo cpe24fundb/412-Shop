@@ -10,7 +10,7 @@
       <div class="h1">Income summary</div>
     </div>
     <div class"row">
-      <div class="card-deck mt-4">
+      <div class="card-deck mt-4 px-0">
         <div class="card col-md-12" style="padding:0">
           <div class="card-body">
             <h4 class="card-title">Today<br></h4>
