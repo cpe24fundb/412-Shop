@@ -29,4 +29,9 @@ class Product extends Model
     public function balance(){
         return $this->stocks->sum('pivot.quantity') - $this->bills->sum('pivot.quantity');
     }
+
+    public function dailyProduct()
+    {
+        return $this->belongsTo('App\Models\DailyProduct');
+    }
 }

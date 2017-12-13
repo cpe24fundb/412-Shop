@@ -11,7 +11,7 @@
 |
 */
 
-$router->get('/', 'ProductController@viewPopularProduct');
+$router->get('/', 'ProductController@viewHomeProduct');
 
 $router->get('/product', 'ProductController@viewAllProducts');
 $router->get('/product/{productId}', 'ProductController@viewDetailProducts');
@@ -250,6 +250,23 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
 
             $router->get('/{year:[0-9]{4}}', [
                 'uses' => 'StatisticBillController@billYear'
+            ]);
+        });
+        
+        $router->group(['prefix' => 'daily', 'as' => 'daily'], function () use ($router) {
+            $router->get('/',[
+                'as' => 'daily',
+                'uses' => 'StatisticDailyController@daily'            
+            ]);
+
+            $router->post('/',[
+                'as' => 'dailyRedirect',
+                'uses' => 'StatisticDailyController@dailyRedirect'            
+            ]);
+            
+            $router->get('{created_at:[0-9]+-+[0-9]+-+[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'StatisticDailyController@view'
             ]);
         });
     });
