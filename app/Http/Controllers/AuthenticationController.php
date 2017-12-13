@@ -47,7 +47,7 @@ class AuthenticationController extends Controller
             
             $cookie = new Cookie('token', $token);
             if ($user->manager_flag)
-                return redirect()->route('admin.manager')->withCookie($cookie);
+                return redirect()->route('admin.manager.dashboard')->withCookie($cookie);
             return redirect()->route('admin.statistic.popular')->withCookie($cookie);
         }
 
