@@ -14,7 +14,7 @@
         <div class="card col-md-3 col-sm-6" style="padding:0">
           <div class="card-body">
             <h4 class="card-title">Today<br></h4>
-            <h6 class="text-right">( {{ $today->toDateString() }} )</h6>
+            <h6 class="text-right">( {{ $today->format("Y/m/d") }} )</h6>
           </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">No. of transaction : {{ $tcount }}</li>
@@ -29,7 +29,7 @@
         <div class="card col-md-3 col-sm-6" style="padding:0">
           <div class="card-body">
             <h4 class="card-title">This week<br></h4>
-            <h6 class="text-right">( {{ $today->startOfWeek()->toDateString() }}~{{ $today->endOfWeek()->toDateString() }} )</h6>
+            <h6 class="text-right">( {{ $today->startOfWeek()->format("Y/m/d") }} ~ {{ $today->endOfWeek()->format("Y/m/d") }} )</h6>
           </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">No. of transaction : {{ $wcount }}</li>
