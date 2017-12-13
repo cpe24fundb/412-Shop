@@ -79,4 +79,14 @@ class ProductController extends Controller
              'product' => $products,
         ]);
     }
+
+    public function dailyProducts()
+    {
+        $products = Product::findOrFail();
+
+        return view('product.dailyProduct', [
+             'title' => 'Daily Product',
+             'product' => $products,
+        ]);
+    }
 }
