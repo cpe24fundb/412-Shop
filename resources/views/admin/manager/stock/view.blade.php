@@ -108,7 +108,7 @@
               <td>{{ $stock->created_at }}</td>
               <td>{{ $stock->updated_at }}</td>
               <td>{{ $stock->user->name }}</td>
-              <td>{{ $stock->line_total }}</td>
+              <td>{{ number_format($stock->line_total, 2, '.', ',') }}</td>
               <td>
                 <a href="/shop-admin/manager/stock/{{ $stock->id }}" class="btn btn-outline-primary">
                   <i class="fa fa-pencil-square-o fa-lg"></i>

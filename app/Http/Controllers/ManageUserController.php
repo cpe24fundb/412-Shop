@@ -4,9 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class ManageUserController extends Controller
 {
+    private function getToken($length){
+        $token = "";
+        $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
+        $codeAlphabet.= "0123456789";
+        $max = strlen($codeAlphabet); // edited
+   
+       for ($i=0; $i < $length; $i++) {
+           $token .= $codeAlphabet[random_int(0, $max-1)];
+       }
+   
+       return $token;
+    }
+
     public function all()
     {
         $users = User::all();
@@ -34,7 +49,8 @@ class ManageUserController extends Controller
         $user->manager_flag = $request->input('manager_flag');
         $user->founder_flag = $request->input('founder_flag');
         $user->username = $request->input('username');
-        $user->password = app('hash')->make($request->input('password'));
+        $user->password = Hash::make($request->input('password'));
+        $user->token = $this->getToken(32);
         $user->total_fund = $request->input('total_fund');
         $user->save();
 
@@ -49,7 +65,7 @@ class ManageUserController extends Controller
         $user->founder_flag = $request->input('founder_flag') ?? false;
         $user->username = $request->input('username') ?? $user->username;
         if (!empty($request->input('password')))
-            $user->password = bcrypt($request->input('password'));
+            $user->password = Hash::make($request->input('password'));
         $user->total_fund = $request->input('total_fund') ?? $user->total_fund;
         $user->save();
 

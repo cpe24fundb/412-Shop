@@ -72,7 +72,7 @@
               <td>{{ $product->ian }}</td>
               <td>{{ $product->name }}</td>
               <td>{{ $product->productCategory->name }}</td>
-              <td>{{ $product->retail_price }}</td>
+              <td>{{number_format($product->retail_price, 2, '.', ',') }}</td>
               <td><a href="{{ $product->image }}"><img src="{{ $product->image }}" class="img-thumbnail rounded" style="max-height: 4rem;"></a></td>
               <td>
                 <a href="/shop-admin/manager/product/{{ $product->id }}" class="btn btn-outline-primary">

@@ -11,7 +11,7 @@
 |
 */
 
-$router->get('/', 'ProductController@viewPopularProduct');
+$router->get('/', 'ProductController@viewHomeProduct');
 
 $router->get('/product', 'ProductController@viewAllProducts');
 $router->get('/product/{productId}', 'ProductController@viewDetailProducts');
@@ -22,12 +22,21 @@ $router->get('/category/{categoryId}', 'ProductController@viewProductsByCategory
 $router->get('/feedback', 'FeedbackController@view');
 $router->post('/feedback', 'FeedbackController@create');
 
+$router->get('/login', [
+    'as' => 'login',
+    'use' => function () {
+    return view('admin.login');
+}]);
+
+$router->post('/login', 'AuthenticationController@login');
+$router->get('/logout', 'AuthenticationController@logout');
+
 $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($router) {
     $router->get('/', function () {
-        return redirect()->route('admin.statistic.dashboard');
+        return redirect()->route('admin.manager.dashboard');
     });
 
-    $router->group(['prefix' => 'manager', 'as' => 'manager'], function () use ($router) {
+    $router->group(['prefix' => 'manager', 'as' => 'manager', 'middleware' => 'auth:manager'], function () use ($router) {
         $router->get('/', [
             'as' => 'dashboard',
             'uses' => 'ManageDashboardController@view'
@@ -223,14 +232,106 @@ $router->group(['prefix' => 'shop-admin', 'as' => 'admin'], function () use ($ro
                 'uses' => 'ManageNotificationController@delete'
             ]);
         });
+
+        $router->group(['prefix' => 'daily', 'as' => 'daily'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'ManageDailyController@all'
+            ]);
+
+            $router->get('{daily_id:[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'ManageDailyController@view'
+            ]);
+
+            $router->get('{daily_id:[0-9]+}/delete', [
+                'as' => 'delete',
+                'uses' => 'ManageDailyController@delete'
+            ]);
+
+            $router->post('{daily_id:[0-9]+}', [
+                'as' => 'edit',
+                'uses' => 'ManageDailyController@edit'
+            ]);
+
+            $router->post('/', [
+                'as' => 'create',
+                'uses' => 'ManageDailyController@create'
+            ]);
+
+            $router->group(['prefix' => '{daily_id:[0-9]+}/item', 'as' => 'item'], function () use ($router) {
+                $router->get('{product_id:[0-9]+}/delete', [
+                    'as' => 'delete',
+                    'uses' => 'ManageDailyController@deleteItem'
+                ]);
+    
+                $router->post('/', [
+                    'as' => 'create',
+                    'uses' => 'ManageDailyController@createItem'
+                ]);
+            });
+        });
     });
 
-    $router->group(['prefix' => 'statistic', 'as' => 'statistic'], function () use ($router) {
+    $router->group(['prefix' => 'statistic', 'as' => 'statistic', 'middleware' => 'auth:founder'], function () use ($router) {
         $router->get('/', [
-            'as' => 'dashboard',
-            'use' => function () {
-                return redirect()->route('admin.manager.dashboard');
-            }
+            'as' => 'popular',
+            'uses' => 'StatisticController@popular'
         ]);
+
+        $router->group(['prefix' => 'bill', 'as' => 'bill'], function () use ($router) {
+            $router->get('/', [
+                'uses' => 'StatisticBillController@view'
+            ]);
+
+            $router->get('/{date:[0-9]{4}-[0-9]{2}-[0-9]{2}}', [
+                'uses' => 'StatisticBillController@billDate'
+            ]);
+
+            $router->get('/{dateF:[0-9]{4}-[0-9]{2}-[0-9]{2}}/{dateT:[0-9]{4}-[0-9]{2}-[0-9]{2}}', [
+                'uses' => 'StatisticBillController@billRange'
+            ]);
+
+            $router->get('/{month:[0-9]{4}-[0-9]{2}}', [
+                'uses' => 'StatisticBillController@billMonth'
+            ]);
+
+            $router->get('/{year:[0-9]{4}}', [
+                'uses' => 'StatisticBillController@billYear'
+            ]);
+        });
+        
+        $router->group(['prefix' => 'daily', 'as' => 'daily'], function () use ($router) {
+            $router->get('/',[
+                'as' => 'daily',
+                'uses' => 'StatisticDailyController@daily'            
+            ]);
+
+            $router->post('/',[
+                'as' => 'dailyRedirect',
+                'uses' => 'StatisticDailyController@dailyRedirect'            
+            ]);
+            
+            $router->get('{created_at:[0-9]+-[0-9]+-[0-9]+}', [
+                'as' => 'view',
+                'uses' => 'StatisticDailyController@view'
+            ]);
+        });
+
+        $router->group(['prefix' => 'product', 'as' => 'product'], function () use ($router) {
+            $router->get('/',[
+                'as' => 'product',
+                'uses' => 'StatisticProductController@all'            
+            ]);
+
+            $router->post('/',[
+                'as' => 'productRedirect',
+                'uses' => 'StatisticProductController@productRedirect'            
+            ]);
+            
+            $router->get('{product_id:[0-9]+}/{date_start}/{date_end}', [
+                'as' => 'view',
+                'uses' => 'StatisticProductController@view'
+            ]);
+        });
     });
 });

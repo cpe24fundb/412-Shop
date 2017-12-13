@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class UserSeeder extends Seeder
             'created_at' => '2017-11-4 8:00:11',
             'updated_at' => '2017-11-4 8:00:11',
             'username' => 'aik',
-            'password' => 'aik',
+            'password' => Hash::make('aik'),
             'name' => 'aik',
             'manager_flag' => 1,
             'founder_flag' => 1,
@@ -30,7 +31,7 @@ class UserSeeder extends Seeder
             'created_at' => '2017-11-4 8:00:11',
             'updated_at' => '2017-11-4 8:00:11',
             'username' => 'aom',
-            'password' => 'aom',
+            'password' => Hash::make('aom'),
             'name' => 'aom',
             'manager_flag' => 1,
             'founder_flag' => 0,
@@ -43,7 +44,7 @@ class UserSeeder extends Seeder
             'created_at' => '2017-11-4 8:00:11',
             'updated_at' => '2017-11-4 8:00:11',
             'username' => 'opal',
-            'password' => 'opal',
+            'password' => Hash::make('opal'),
             'name' => 'opal',
             'manager_flag' => 1,
             'founder_flag' => 0,
@@ -56,7 +57,7 @@ class UserSeeder extends Seeder
             'created_at' => '2017-11-4 8:00:11',
             'updated_at' => '2017-11-4 8:00:11',
             'username' => 'lek',
-            'password' => 'lek',
+            'password' => Hash::make('lek'),
             'name' => 'lek',
             'manager_flag' => 0,
             'founder_flag' => 1,
@@ -69,7 +70,7 @@ class UserSeeder extends Seeder
             'created_at' => '2017-11-4 8:00:11',
             'updated_at' => '2017-11-4 8:00:11',
             'username' => 'boom',
-            'password' => 'boom',
+            'password' => Hash::make('boom'),
             'name' => 'boom',
             'manager_flag' => 0,
             'founder_flag' => 1,

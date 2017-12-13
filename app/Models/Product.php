@@ -18,11 +18,20 @@ class Product extends Model
 
     public function bills()
     {
-        return $this->belongsToMany('App\Models\Bill', 'bill_items')->withPivot('quantity');
+        return $this->belongsToMany('App\Models\Bill', 'bill_items')->withPivot('quantity')->withTimestamps();
     }
 
     public function stocks()
     {
-        return $this->belongsToMany('App\Models\Stock', 'stock_items')->withPivot('quantity');
+        return $this->belongsToMany('App\Models\Stock', 'stock_items')->withPivot('quantity')->withTimestamps();
+    }
+
+    public function balance(){
+        return $this->stocks->sum('pivot.quantity') - $this->bills->sum('pivot.quantity');
+    }
+
+    public function dailyProduct()
+    {
+        return $this->belongsTo('App\Models\DailyProduct');
     }
 }

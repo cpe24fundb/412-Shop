@@ -106,7 +106,7 @@
               <td>{{ $bill->id }}</td>
               <td>{{ $bill->created_at }}</td>
               <td>{{ $bill->updated_at }}</td>
-              <td>{{ $bill->line_total }}</td>
+              <td>{{ number_format($bill->line_total, 2, '.', ',') }}</td>
               <td>
                 <a href="/shop-admin/manager/bill/{{ $bill->id }}" class="btn btn-outline-primary">
                   <i class="fa fa-pencil-square-o fa-lg"></i>
