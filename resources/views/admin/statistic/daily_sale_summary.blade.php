@@ -7,9 +7,9 @@
 @section('content')
   <h1>Sale report</h1>
   <form action="/shop-admin/statistic/daily"  method="post">
-        <div class="form-group">
+        <div  class="form-group">
             <label for="name">Date</label>
-            <input type="text" class="form-control" name="time"  placeholder="eg. 2017-11-04">
+            <input type="date" class="form-control" name="time"  placeholder="eg. 2017-11-04">
         </div>
         <button type="submit" class="btn btn-warning">Submit</button>
   </form>

@@ -22,8 +22,8 @@ class ProductCategorySeeder extends Seeder
 
         DB::table('product_categories')->insert([
             'id' => 102,
-            'name' => 'Sweets',
-            'description' => 'sweets',
+            'name' => 'Candy',
+            'description' => 'candy',
             'created_at' => '2017-11-2 1:06:37',
             'updated_at' => '2017-11-2 1:06:37'
         ]);
@@ -67,6 +67,5 @@ class ProductCategorySeeder extends Seeder
             'created_at' => '2017-11-2 1:18:07',
             'updated_at' => '2017-11-2 1:18:07'
         ]);
-
     }
 }

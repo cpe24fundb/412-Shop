@@ -38,10 +38,10 @@ class ProductSeeder extends Seeder
 
         DB::table('products')->insert([
             'id' => 3,
-            'product_category_id' => 106,
-            'retail_price' => 10.0,
+            'product_category_id' => 101,
+            'retail_price' => 9.0,
             'name' => 'Chocolate Custard Bun',
-            'description' => 'farm house chocolate bun',
+            'description' => 'fram house chocolate bun',
             'ian' => '5661100874326',
             'created_at' => '2017-10-27 8:00:11',
             'updated_at' => '2017-10-27 8:00:11',
@@ -62,10 +62,10 @@ class ProductSeeder extends Seeder
 
         DB::table('products')->insert([
             'id' => 5,
-            'product_category_id' => 104,
-            'retail_price' => 15.0,
-            'name' => 'Mama Cup',
-            'description' => 'Instand noodle cup cheep and tasty',
+            'product_category_id' => 101,
+            'retail_price' => 75.0,
+            'name' => 'durex',
+            'description' => 'condom',
             'ian' => '0145123435678',
             'created_at' => '2017-11-1 00:54:39',
             'updated_at' => '2017-11-1 00:54:39',
