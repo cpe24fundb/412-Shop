@@ -26,5 +26,20 @@ class DailyProductSeeder extends Seeder
             'daily_id' => 1002568,
             'product_id' => 5,
         ]);
+
+        DB::table('daily_products')->insert([
+            'daily_id' => 1002569,
+            'product_id' => 5,
+        ]);
+
+        DB::table('daily_products')->insert([
+            'daily_id' => 1002569,
+            'product_id' => 7,
+        ]);
+
+        DB::table('daily_products')->insert([
+            'daily_id' => 1002569,
+            'product_id' => 10,
+        ]);
     }
 }

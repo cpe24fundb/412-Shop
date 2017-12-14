@@ -16,5 +16,10 @@ class DailySeeder extends Seeder
             'id' => 1002568,
             'created_date' => '2017-12-13'
         ]);
+
+        DB::table('dailies')->insert([
+            'id' => 1002569,
+            'created_date' => '2017-12-14'
+        ]);
     }
 }

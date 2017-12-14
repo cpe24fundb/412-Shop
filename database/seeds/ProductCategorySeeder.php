@@ -60,5 +60,13 @@ class ProductCategorySeeder extends Seeder
             'updated_at' => '2017-11-2 1:15:50'
         ]);
 
+        DB::table('product_categories')->insert([
+            'id' => 107,
+            'name' => 'Ice Cream',
+            'description' => 'ice cream',
+            'created_at' => '2017-11-2 1:18:07',
+            'updated_at' => '2017-11-2 1:18:07'
+        ]);
+
     }
 }
